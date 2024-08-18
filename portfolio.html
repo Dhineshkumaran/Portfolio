@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Move and Pop</title>
+    <link rel="stylesheet" href="./dist/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,900&display=swap');
+
+        body {
+            width: 100vw;
+            margin: 0px;
+        }
+
+        .merriweather-black {
+            font-family: "Merriweather", serif;
+            font-weight: 900;
+            font-style: normal;
+        }
+
+        .merriweather-black-italic {
+            font-family: "Merriweather", serif;
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        .move-pop {
+            animation: move-pop 5s linear forwards;
+        }
+
+        @keyframes move-pop {
+            0% {
+                transform: translateX(-50%) scale(0);
+                opacity: 1;
+            }
+
+            25% {
+                transform: translateX(calc(25vw - 25%)) scale(1);
+                opacity: 1;
+            }
+
+            75% {
+                transform: translateX(calc(75vw - 75%)) scale(2);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translateX(calc(100vw - 100%)) scale(3);
+                opacity: 0;
+            }
+        }
+
+        .nav-item.active {
+            background-color: rgba(255, 255, 255, 0.5);
+            color: black;
+            border-radius: 25px;
+            padding: 5px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding: 2px;
+        }
+
+        .navbar-toggle {
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
+            .navbar-toggle {
+                display: flex;
+                position: fixed;
+                top: 0;
+                right: 0;
+                padding: 10px;
+                z-index: 1000;
+                color: rgb(0, 0, 0);
+                cursor: pointer;
+            }
+
+            .sidebar {
+                left: -100%;
+                transition: 1200ms;
+            }
+
+            .sidebar.open {
+                left: 0;
+                transition: 1200ms;
+            }
+        }
+
+        .hidden-effect-top {
+            opacity: 0;
+            /* filter: blur(5px); */
+            transform: translateY(+25px);
+            transition: all 2s;
+        }
+
+        .hidden-effect-bottom {
+            opacity: 0;
+            /* filter: blur(5px); */
+            transform: translateY(-25px);
+            transition: all 2s;
+        }
+
+        .hidden-effect-left {
+            opacity: 0;
+            /* filter: blur(5px); */
+            transform: translateX(-25px);
+            transition: all 2s;
+        }
+
+        .hidden-effect-right {
+            opacity: 0;
+            /* filter: blur(5px); */
+            transform: translateX(+25px);
+            transition: all 2s;
+        }
+
+        .show-x {
+            opacity: 1;
+            /* filter: blur(0); */
+            transform: translateX(0);
+        }
+
+        .show-y {
+            opacity: 1;
+            /* filter: blur(0); */
+            transform: translateY(0);
+        }
+
+        /* @media(prefers-reduced-motion) {
+            .hidden-effect {
+                transition: none;
+            }
+        } */
+
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+
+        .grayscale {
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex">
+        <div class="navbar-toggle lg:hidden m-5">
+            <span class="material-symbols-outlined">
+                menu
+            </span>
+        </div>
+
+        <nav
+            class="sidebar md:w-1/2 sm:w-1/2 lg:w-[20%] h-screen flex-col bg-violet-300 items-center transition-all duration-1000 ease-in-out lg:left-0 text-center px-16 top-0 z-10 fixed lg:flex">
+            <div class="flex flex-col pt-6 items-center">
+                <div class="w-auto h-auto p-2 bg-white rounded-full">
+                    <img src="./images/IMG_20240719_104822.jpg" class="rounded-full" width="100px" height="100px">
+                </div>
+                <h5 class="font-semibold text-white">Dhinesh kumaran S</h5>
+                <div class="bg-slate-100 text-black p-3 rounded-full w-auto h-auto mt-5 cursor-pointer">
+                    <a href="Final resume.pdf" target="_blank">
+                        <h5>View my Resume</h5>
+                    </a>
+                </div>
+                <ul class="flex-col space-y-5 pt-10 text-white">
+                    <li class="nav-item"><a href="#about-section">About</a></li>
+                    <li class="nav-item"><a href="#education-section">Education</a></li>
+                    <li class="nav-item"><a href="#skill-section">Skills</a></li>
+                    <li class="nav-item"><a href="#projects">Projects</a></li>
+                    <li class="nav-item"><a href="#achievements-section">Achievements</a></li>
+                    <li class="nav-item"><a href="#courses-section">Courses</a></li>
+                    <li class="nav-item"><a href="#profile-section">Profile</a></li>
+                </ul>
+                <div class="pt-8">
+                    <h1 class="font-bold text-white">Visit me on</h1>
+                    <div class="flex flex-col space-y-1 pt-3">
+                        <a href="https://linkedin.com/in/dhinesh-kumaran-s" class="text-white" target="_blank"><i
+                                class="fa-brands fa-linkedin text-white p-3"></i>Linkedin</a>
+                        <a href="https://github.com/Dhineshkumaran" class="text-white" target="_blank"><i
+                                class="fa-brands fa-github text-white p-3"></i>Github</a>
+                        <a href="https://leetcode.com/u/22CSR048_Dhinesh/" class="text-white" target="_blank"><i
+                                class="fa-solid fa-code text-white p-3"></i>Leetcode</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <main class="lg:pl-80 text-center">
+            <section id="about-section">
+                <h1 class="merriweather-black text-3xl p-10 hidden-effect-left">About Me</h1>
+                <div class="text-center w-auto h-auto p-10 mx-10 shadow-md hidden-effect-left">
+                    <p>As a computer science and engineering student at Kongu Engineering College, I'm deeply passionate
+                        about learning software development, various programming languages, and frameworks. My goal is
+                        to become a proficient full-stack developer dedicated to delivering seamless and user-friendly
+                        website experiences. I thrive on quickly grasping new programming concepts and techniques.</p>
+                </div>
+            </section>
+            <section id="education-section">
+                <h1 class="merriweather-black text-3xl p-10 hidden-effect-left">Education</h1>
+                <div class="w-auto h-auto p-10 mx-10 shadow-md hidden-effect-left">
+                    <div class="flex flex-col space-y-12">
+                        <div>
+                            <i class="fa-solid fa-graduation-cap fa-2x"></i>
+                            <div>
+                                <p class="font-bold">2019-2020</p><br>
+                                <p class="text-2xl font-bold font-serif">SSLC</p>
+                                <p class="font-bold">Shri Ganga Matriculation School</p>
+                                <p class="font-light">Grade: 92.6%</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <i class="fa-solid fa-graduation-cap fa-2x"></i>
+                            <div>
+                                <p class="font-bold">2021-2022</p><br>
+                                <p class="text-2xl font-bold font-serif">HSC</p>
+                                <p class="font-bold">Shri Ganga Higher Secondary School</p>
+                                <p class="font-light">Grade: 85.33%</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div>
+                            <i class="fa-solid fa-graduation-cap fa-2x"></i>
+                            <div>
+                                <p class="font-bold">2022-2026</p><br>
+                                <p class="text-2xl font-bold font-serif">Computer Science and Engineering</p>
+                                <p class="font-bold">Kongu Engineering College</p>
+                                <p class="font-light">CGPA: 7.37</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="skill-section">
+                <h1 class="merriweather-black text-3xl p-10">Skills</h1>
+                <div class="flex flex-col lg:flex-row">
+                    <div id="skills" class="flex space-x-4 w-full lg:w-1/5 mx-auto hidden-effect-left">
+                        <img class="astronaut object-contain h-64" src="./images/Astronaut.png" alt="Astronaut Image">
+                    </div>
+                    <div class="w-full lg:w-4/5 mx-auto p-5 hidden-effect-right">
+                        <div class="w-auto h-auto m-5 p-5 shadow-md flex flex-col lg:flex-row lg:space-x-5">
+                            <div class="lg:w-1/2">
+                                <div class="pt-5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-light">JavaScript</span>
+                                        <span class="font-light">85%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full">
+                                        <div class="h-2 w-[85%] bg-purple-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="pt-5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-light">NodeJS</span>
+                                        <span class="font-light">80%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full">
+                                        <div class="h-2 w-[80%] bg-purple-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="pt-5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-light">ExpressJS</span>
+                                        <span class="font-light">80%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full">
+                                        <div class="h-2 w-[80%] bg-purple-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="pt-5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-light">ReactJS</span>
+                                        <span class="font-light">70%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full">
+                                        <div class="h-2 w-[70%] bg-purple-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="pt-5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-light">MongoDB</span>
+                                        <span class="font-light">80%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full">
+                                        <div class="h-2 w-[80%] bg-purple-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2">
+                                <div class="pt-5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-light">TailwindCSS</span>
+                                        <span class="font-light">70%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full">
+                                        <div class="h-2 w-[70%] bg-purple-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="pt-5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-light">SQL</span>
+                                        <span class="font-light">70%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full">
+                                        <div class="h-2 w-[70%] bg-purple-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="pt-5">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class="font-light">Postman</span>
+                                        <span class="font-light">90%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full">
+                                        <div class="h-2 w-[90%] bg-purple-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                                <div class="pt-5">
+                                    <div class="flex justify-between items-center">
+                                        <span class="font-light">Git</span>
+                                        <span class="font-light">80%</span>
+                                    </div>
+                                    <div class="w-full h-2 bg-gray-300 rounded-full">
+                                        <div class="h-2 w-[80%] bg-purple-300 rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="projects">
+                <h1 class="merriweather-black text-3xl p-10 hidden-effect-top">Projects</h1>
+                <div class="px-3 text-center lg:text-left">
+                    <div class="w-auto h-auto m-10 p-5 flex flex-col lg:flex-row">
+                        <div class="w-auto hidden-effect-left">
+                            <img src="./images/Screenshot 2024-07-08 195057.png">
+                        </div>
+                        <div class="pl-5 hidden-effect-right">
+                            <h3 class="text-2xl font-bold pt-3">Project 1</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
+                                debitis.
+                                Obcaecati iste temporibus adipisci. Nemo aliquam ipsum consequatur animi? Consequatur
+                                provident
+                                nam ex itaque fugit, exercitationem libero temporibus dolores aut voluptatibus velit
+                                dolore,
+                                nemo a nisi eveniet mollitia dolor neque commodi inventore. Quas voluptatem ratione
+                                dignissimos
+                                voluptatum?
+                            </p>
+                            <a href="https://github.com/Dhineshkumaran/Food-ordering">
+                                <button class="bg-gray-800 rounded text-white p-2 my-3">
+                                    <i class="fa-brands fa-github pr-2"></i>View
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-auto h-auto m-10 p-5 flex flex-col lg:flex-row">
+                        <div class="pl-5 hidden-effect-left">
+                            <h3 class="text-2xl font-bold pb-3">Project 2</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
+                                debitis.
+                                Obcaecati iste temporibus adipisci. Nemo aliquam ipsum consequatur animi? Consequatur
+                                provident
+                                nam ex itaque fugit, exercitationem libero temporibus dolores aut voluptatibus velit
+                                dolore,
+                                nemo a nisi eveniet mollitia dolor neque commodi inventore. Quas voluptatem ratione
+                                dignissimos
+                                voluptatum?</p>
+                            <a href="https://github.com/Dhineshkumaran/SAP">
+                                <button class="bg-gray-800 rounded text-white p-2 my-3">
+                                    <i class="fa-brands fa-github pr-2"></i>View
+                                </button>
+                            </a>
+                        </div>
+                        <div class="w-auto hidden-effect-right">
+                            <img src="./images/Screenshot 2024-07-08 200730.png">
+                        </div>
+                    </div>
+                    <div class="w-auto h-auto m-10 p-5 flex flex-col lg:flex-row">
+                        <div class="w-auto hidden-effect-left">
+                            <img src="./images/Screenshot 2024-08-18 054843.png">
+                        </div>
+                        <div class="pl-5 hidden-effect-right">
+                            <h3 class="text-2xl font-bold pt-3">Project 3</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
+                                debitis.
+                                Obcaecati iste temporibus adipisci. Nemo aliquam ipsum consequatur animi? Consequatur
+                                provident
+                                nam ex itaque fugit, exercitationem libero temporibus dolores aut voluptatibus velit
+                                dolore,
+                                nemo a nisi eveniet mollitia dolor neque commodi inventore. Quas voluptatem ratione
+                                dignissimos
+                                voluptatum?
+                            </p>
+                            <a href="https://github.com/Dhineshkumaran/HarvestHub">
+                                <button class="bg-gray-800 rounded text-white p-2 my-3">
+                                    <i class="fa-brands fa-github pr-2"></i>View
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="achievements-section">
+                <h1 class="merriweather-black text-3xl p-10 hidden-effect-top">Achievements</h1>
+                <div class="flex flex-col lg:flex-row px-3 justify-between hidden-effect-top">
+                    <div class="w-auto h-auto p-2 m-10 shadow-md">
+                        <img src="./images/IMG-20240501-WA0000.jpg" width="auto" height="100px">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
+                            debitis.
+                            Obcaecati iste temporibus adipisci. Nemo aliquam ipsum consequatur animi? Consequatur
+                            provident
+                            nam ex itaque fugit, exercitationem libero temporibus dolores aut voluptatibus velit dolore,
+                            nemo a nisi eveniet mollitia dolor neque commodi inventore. Quas voluptatem ratione
+                            dignissimos
+                            voluptatum?</p>
+                    </div>
+                    <div class="w-auto h-auto p-2 m-10 shadow-md">
+                        <img src="./images/IMG-20240418-WA0005.jpg" width="auto" height="100px">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
+                            debitis.
+                            Obcaecati iste temporibus adipisci. Nemo aliquam ipsum consequatur animi? Consequatur
+                            provident
+                            nam ex itaque fugit, exercitationem libero temporibus dolores aut voluptatibus velit dolore,
+                            nemo a nisi eveniet mollitia dolor neque commodi inventore. Quas voluptatem ratione
+                            dignissimos
+                            voluptatum?</p>
+                    </div>
+                    <div class="w-auto h-auto p-2 m-10 shadow-md">
+                        <img src="./images/White.png" width="auto" height="100px">
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
+                            debitis.
+                            Obcaecati iste temporibus adipisci. Nemo aliquam ipsum consequatur animi? Consequatur
+                            provident
+                            nam ex itaque fugit, exercitationem libero temporibus dolores aut voluptatibus velit dolore,
+                            nemo a nisi eveniet mollitia dolor neque commodi inventore. Quas voluptatem ratione
+                            dignissimos
+                            voluptatum?</p>
+                    </div>
+                </div>
+            </section>
+            <section id="courses-section">
+                <h1 class="merriweather-black text-3xl p-10 hidden-effect-top">Courses</h1>
+                <div class="p-5 m-5">
+                    <div class="shadow-md p-5 flex items-center justify-between text-center hidden-effect-left">
+                        <img src="https://clipground.com/images/coursera-logo-png-1.jpg" width="100px" height="100px">
+                        <h3>Google AI Essentials</h3>
+                        <a href="https://www.credly.com/badges/c7eecf51-a02f-4c96-8f7a-8e634090d0d5/linked_in_profile" target="_blank">
+                            <button class="outline outline-offset-2 outline-black rounded p-3"><i class="fa-solid fa-arrow-up-right-from-square pr-3"></i>View credentials</button>
+                        </a>
+                    </div>
+                    <div class="shadow-md p-5 flex items-center justify-between text-center hidden-effect-right">
+                        <img src="https://icon.icepanel.io/Technology/svg/Postman.svg" width="100px" height="100px">
+                        <h3>Postman API Fundamentals Student Expert Badge</h3>
+                        <a href="https://badgr.com/public/assertions/HVndvOU4SnCTWAiSI9pCvQ?identity__email=dhineshkumaran2004@outlook.com" target="_blank">
+                            <button class="outline outline-offset-2 outline-black rounded p-3"><i class="fa-solid fa-arrow-up-right-from-square pr-3"></i>View credentials</button>
+                        </a>
+                    </div>
+                    <div class="shadow-md p-5 flex items-center justify-between text-center hidden-effect-left">
+                        <img src="https://logosandtypes.com/wp-content/uploads/2024/01/Udemy.png" width="100px"
+                            height="100px">
+                        <h3>The Basics of Linux Command Line</h3>
+                        <a href="https://www.udemy.com/certificate/UC-8f7e7a5b-408f-4a63-96c5-25198cdf42d3/" target="_blank">
+                            <button class="outline outline-offset-2 outline-black rounded p-3"><i class="fa-solid fa-arrow-up-right-from-square pr-3"></i>View credentials</button>
+                        </a>
+                    </div>
+                    <div class="shadow-md p-5 flex items-center justify-between text-center hidden-effect-right">
+                        <img src="https://logosandtypes.com/wp-content/uploads/2024/01/Udemy.png" width="100px"
+                            height="100px">
+                        <h3>TailwindCSS from A to Z: Master TailwindCSS Quickly</h3>
+                        <a href="https://www.udemy.com/certificate/UC-6334f176-618a-4e92-9a83-ceb8da9d53d7/" target="_blank">
+                            <button class="outline outline-offset-2 outline-black rounded p-3"><i class="fa-solid fa-arrow-up-right-from-square pr-3"></i>View credentials</button>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section id="profile-section" class="pb-32">
+                <h1 class="merriweather-black text-3xl p-10 hidden-effect-top">Profile</h1>
+                <div class="shadow-md p-16 w-auto h-auto m-5 hidden-effect-top">
+                    <div class="flex flex-col lg:flex-row text-center justify-between">
+                        <div class="text-center">
+                            <h6 class="font-bold">Name</h6>
+                            <p>Dhineshkumaran S</p><br>
+                            <h6 class="font-bold">Date of Birth</h6>
+                            <p>26-07-2004</p><br>
+                            <h6 class="font-bold">Languages known</h6>
+                            <p>Tamil, English</p>
+                        </div><br>
+                        <div class="text-center">
+                            <h6 class="font-bold">Permanent Address</h6>
+                            <address>
+                                25, Thottiankinathupudur,<br>
+                                Kasthuriba grammam(PO),<br>
+                                Arachalur(Via),<br>
+                                Erode - 638101.
+                            </address><br>
+                            <h6 class="font-bold">Hobbies</h6>
+                            <p>Learning new things, Listening to Music,<br> Playing Sports</p>
+                        </div><br>
+                        <div class="text-center">
+                            <h6 class="font-bold">Contact</h6>
+                            <div class="pt-5 text-center">
+                                <div>
+                                  <a href="tel:+91 9952237496" target="_blank"><i class="fas fa-phone pr-3"></i>+91 9952237496</a>
+                                </div>
+                                <div>
+                                  <a href="mailto:dhineshkumaran2004@outlook.com" target="_blank"><i class="fas fa-envelope pr-3"></i>dhineshkumaran2004@outlook.com</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let skillContainer = document.getElementById('skills');
+            const navbarToggle = document.querySelector('.navbar-toggle');
+            const sidebar = document.querySelector('.sidebar');
+
+            function recursive(skills) {
+                skills.forEach((skill, index) => {
+                    setTimeout(() => {
+                        let skillElement = document.createElement('img');
+                        skillElement.setAttribute('src', skill);
+                        skillElement.classList.add('move-pop', 'w-auto', 'h-16'); //'grayscale'
+                        // skillElement.addEventListener('mouseover', ()=>{
+                        //     skillElement.classList.remove('grayscale');
+                        // })
+                        skillContainer.appendChild(skillElement);
+                        skillElement.addEventListener('animationend', () => {
+                            skillElement.remove();
+                        });
+                    }, 5000 * index);
+                });
+
+                // Recursively call the function after all elements have been scheduled
+                setTimeout(() => {
+                    recursive(skills);
+                }, 5000 * skills.length); // Wait for the entire cycle to complete before starting again
+            }
+
+            let skills = ['https://icon.icepanel.io/Technology/svg/JavaScript.svg', 'https://icon.icepanel.io/Technology/svg/Node.js.svg', 'https://icon.icepanel.io/Technology/svg/React.svg', 'https://icon.icepanel.io/Technology/svg/Express.svg', 'https://icon.icepanel.io/Technology/svg/MongoDB.svg', 'https://icon.icepanel.io/Technology/svg/Postman.svg', 'https://icon.icepanel.io/Technology/svg/MySQL.svg', 'https://icon.icepanel.io/Technology/svg/Git.svg'];
+            recursive(skills);
+
+            const sections = document.querySelectorAll('main section');
+            const navItems = document.querySelectorAll('.nav-item');
+
+            function highlightNav() {
+                let index = sections.length;
+
+                while (--index && window.scrollY + 30 < sections[index].offsetTop) { }
+
+                navItems.forEach((item) => item.classList.remove('active'));
+                navItems[index].classList.add('active');
+            }
+
+            highlightNav();
+            window.addEventListener('scroll', highlightNav);
+
+            // Toggle sidebar visibility
+            navbarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('open');
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting && (entry.target.classList.contains('hidden-effect-left') || entry.target.classList.contains('hidden-effect-right'))) {
+                        entry.target.classList.add('show-x');
+                    } else if (entry.isIntersecting && (entry.target.classList.contains('hidden-effect-top') || entry.target.classList.contains('hidden-effect-bottom'))) {
+                        entry.target.classList.add('show-y');
+                    }
+                });
+            });
+
+            const hiddenElements = document.querySelectorAll('.hidden-effect-left, .hidden-effect-right, .hidden-effect-top, .hidden-effect-bottom');
+            console.log(hiddenElements);
+            hiddenElements.forEach((element) => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+
+</html>
