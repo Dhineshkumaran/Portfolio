@@ -669,6 +669,12 @@ video {
   justify-content: space-between;
 }
 
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -687,10 +693,8 @@ video {
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
 
-.space-x-4 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1rem * var(--tw-space-x-reverse));
-  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+.overflow-x-hidden {
+  overflow-x: hidden;
 }
 
 .rounded {
@@ -773,6 +777,10 @@ video {
   padding-left: 1.25rem;
 }
 
+.pl-\[-30px\] {
+  padding-left: -30px;
+}
+
 .pr-2 {
   padding-right: 0.5rem;
 }
@@ -799,10 +807,6 @@ video {
 
 .pt-8 {
   padding-top: 2rem;
-}
-
-.pl-\[-30px\] {
-  padding-left: -30px;
 }
 
 .text-center {
