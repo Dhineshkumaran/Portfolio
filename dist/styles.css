@@ -832,6 +832,10 @@ video {
   padding-right: 14px;
 }
 
+.pr-\[16px\] {
+  padding-right: 16px;
+}
+
 .text-center {
   text-align: center;
 }
