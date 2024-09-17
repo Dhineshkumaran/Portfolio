@@ -935,14 +935,6 @@ video {
     width: 50%;
   }
 
-  .sm\:flex-row {
-    flex-direction: row;
-  }
-
-  .sm\:flex-col {
-    flex-direction: column;
-  }
-
   .sm\:pb-12 {
     padding-bottom: 3rem;
   }
