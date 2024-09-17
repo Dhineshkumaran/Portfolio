@@ -214,7 +214,7 @@
                 </div>
             </div>
         </nav>
-        <main class="lg:pl-80 text-center pr-[16px]">
+        <main class="lg:pl-80 text-center">
             <section id="about-section">
                 <h1 class="merriweather-black text-3xl py-10 hidden-effect-left">About Me</h1>
                 <div class="text-center w-auto h-auto p-10 mx-10 shadow-md hidden-effect-left">
@@ -263,7 +263,7 @@
             <section id="skill-section">
                 <h1 class="merriweather-black text-3xl p-10">Skills</h1>
                 <div class="flex flex-col lg:flex-row">
-                    <div id="skills" class="flex space-x-4 w-full lg:w-1/5 mx-auto hidden-effect-left">
+                    <div id="skills" class="flex space-x-4 w-full lg:w-1/5 mx-auto hidden-effect-left" onclick="blast()">
                         <img class="astronaut object-contain h-64" src="./images/Astronaut.png" alt="Astronaut Image">
                     </div>
                     <div class="w-full lg:w-4/5 mx-auto py-5 hidden-effect-right">
@@ -544,8 +544,23 @@
     </div>
 
     <script>
+
+        let skills = ['https://icon.icepanel.io/Technology/svg/JavaScript.svg', 'https://icon.icepanel.io/Technology/svg/Node.js.svg', 'https://icon.icepanel.io/Technology/svg/React.svg', 'https://icon.icepanel.io/Technology/svg/Express.svg', 'https://icon.icepanel.io/Technology/svg/MongoDB.svg', 'https://icon.icepanel.io/Technology/svg/Postman.svg', 'https://icon.icepanel.io/Technology/svg/MySQL.svg', 'https://icon.icepanel.io/Technology/svg/Git.svg'];
+        let skillContainer = document.getElementById('skills');
+        let index = 0;
+
+        function blast(){
+            let skill = skills[(index++)%skills.length];
+            let skillElement = document.createElement('img');
+            skillElement.setAttribute('src', skill);
+            skillElement.classList.add('move-pop', 'w-auto', 'h-16', 'rounded-full', 'outline', 'outline-2', 'outline-offset-2', 'outline-gray-500','pl-[-30px]'); //'grayscale'
+            skillContainer.appendChild(skillElement);
+            skillElement.addEventListener('animationend', () => {
+                skillElement.remove();
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', function () {
-            let skillContainer = document.getElementById('skills');
             const navbarToggle = document.querySelector('.navbar-toggle');
             const sidebar = document.querySelector('.sidebar');
 
@@ -571,7 +586,6 @@
                 }, 5000 * skills.length); // Wait for the entire cycle to complete before starting again
             }
 
-            let skills = ['https://icon.icepanel.io/Technology/svg/JavaScript.svg', 'https://icon.icepanel.io/Technology/svg/Node.js.svg', 'https://icon.icepanel.io/Technology/svg/React.svg', 'https://icon.icepanel.io/Technology/svg/Express.svg', 'https://icon.icepanel.io/Technology/svg/MongoDB.svg', 'https://icon.icepanel.io/Technology/svg/Postman.svg', 'https://icon.icepanel.io/Technology/svg/MySQL.svg', 'https://icon.icepanel.io/Technology/svg/Git.svg'];
             recursive(skills);
 
             const sections = document.querySelectorAll('main section');
