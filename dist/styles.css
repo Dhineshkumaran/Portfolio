@@ -589,25 +589,12 @@ video {
   margin-bottom: 0.75rem;
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
 
 .mt-5 {
   margin-top: 1.25rem;
-}
-
-.mr-\[20px\] {
-  margin-right: 20px;
-}
-
-.mr-\[100px\] {
-  margin-right: 100px;
 }
 
 .flex {
@@ -817,10 +804,6 @@ video {
   padding-right: 0.75rem;
 }
 
-.pr-\[20px\] {
-  padding-right: 20px;
-}
-
 .pt-10 {
   padding-top: 2.5rem;
 }
@@ -950,6 +933,14 @@ video {
 @media (min-width: 640px) {
   .sm\:w-1\/2 {
     width: 50%;
+  }
+
+  .sm\:flex-row {
+    flex-direction: row;
+  }
+
+  .sm\:flex-col {
+    flex-direction: column;
   }
 
   .sm\:pb-12 {
