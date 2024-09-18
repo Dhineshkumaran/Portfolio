@@ -27,6 +27,10 @@
             animation: move-pop 5s linear forwards;
         }
 
+        .move-pop-speed {
+            animation: move-pop 500ms linear forwards;
+        }
+
         @keyframes move-pop {
             0% {
                 transform: translateX(-50%) scale(0);
@@ -51,6 +55,30 @@
 
         @media (max-width: 768px) {
             @keyframes move-pop {
+                0% {
+                    transform: translateY(50%) scale(0);
+                    opacity: 1;
+                }
+
+                25% {
+                    transform: translateY(calc(-25vh + 25%)) scale(1);
+                    opacity: 1;
+                }
+
+                75% {
+                    transform: translateY(calc(-75vh + 75%)) scale(2);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: translateY(calc(-100vh + 100%)) scale(3);
+                    opacity: 0;
+                }
+            }
+        }
+
+        @media (max-width: 768px) {
+            @keyframes move-pop-speed {
                 0% {
                     transform: translateY(50%) scale(0);
                     opacity: 1;
