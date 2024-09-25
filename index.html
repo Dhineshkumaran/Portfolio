@@ -143,28 +143,28 @@
         .hidden-effect-top {
             opacity: 0;
             /* filter: blur(5px); */
-            transform: translateY(+250px);
+            transform: translateY(+25px);
             transition: all 1s;
         }
 
         .hidden-effect-bottom {
             opacity: 0;
             /* filter: blur(5px); */
-            transform: translateY(-250px);
+            transform: translateY(-25px);
             transition: all 1s;
         }
 
         .hidden-effect-left {
             opacity: 0;
             /* filter: blur(5px); */
-            transform: translateX(-250px);
+            transform: translateX(-25px);
             transition: all 1s;
         }
 
         .hidden-effect-right {
             opacity: 0;
             /* filter: blur(5px); */
-            transform: translateX(+250px);
+            transform: translateX(+25px);
             transition: all 1s;
         }
 
@@ -190,11 +190,16 @@
             -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
         }
+
+        * {
+            outline: 2px solid red;
+        }
+
     </style>
 </head>
 
 <body onscroll="slide_in()">
-    <div class="flex overflow-x-hidden">
+    <div>
         <div class="navbar-toggle lg:hidden m-5">
             <span class="material-symbols-outlined" id="toggle">menu</span>
         </div>
@@ -228,9 +233,9 @@
             </div>
         </nav>
         <main class="lg:pl-80 text-center" onclick="slide_in()">
-            <section id="about-section">
-                <h1 class="merriweather-black text-3xl py-10 hidden-effect-left">About Me</h1>
-                <div class="text-center w-auto h-auto p-10 shadow-md hidden-effect-left">
+            <section id="about-section">   
+                <h1 class="merriweather-black text-3xl py-10 mx-5 hidden-effect-left">About Me</h1>
+                <div class="text-center w-auto h-auto p-10 shadow-md mx-5 hidden-effect-left">
                     <p>As a computer science and engineering student at Kongu Engineering College, I'm deeply passionate
                         about learning software development, various programming languages, and frameworks. My goal is
                         to become a proficient full-stack developer dedicated to delivering seamless and user-friendly
@@ -238,8 +243,8 @@
                 </div>
             </section>
             <section id="education-section">
-                <h1 class="merriweather-black text-3xl p-10 hidden-effect-right">Education</h1>
-                <div class="w-auto h-auto py-10 shadow-md hidden-effect-right">
+                <h1 class="merriweather-black text-3xl p-10 mx-5 hidden-effect-right">Education</h1>
+                <div class="w-auto h-auto py-10 shadow-md mx-5 hidden-effect-right">
                     <div class="flex flex-col space-y-12">
                         <div>
                             <i class="fa-solid fa-graduation-cap fa-2x"></i>
@@ -276,10 +281,10 @@
             <section id="skill-section">
                 <h1 class="merriweather-black text-3xl p-10">Skills</h1>
                 <div class="flex flex-col lg:flex-row">
-                    <div id="skills" class="flex space-x-4 w-full lg:w-1/5 hidden-effect-left" onclick="blast()">
+                    <div id="skills" class="flex space-x-4 w-full lg:w-1/5 mx-5 hidden-effect-left" onclick="blast()">
                         <img class="astronaut object-contain h-64" src="./images/Astronaut.png" alt="Astronaut Image">
                     </div>
-                    <div class="w-full lg:w-4/5 py-5 hidden-effect-right">
+                    <div class="w-full lg:w-4/5 py-5 mx-5 hidden-effect-right">
                         <div class="w-auto h-auto p-5 shadow-md flex flex-col lg:flex-row lg:space-x-5">
                             <div class="lg:w-1/2">
                                 <div class="pt-5">
@@ -371,13 +376,13 @@
                 </div>
             </section>
             <section id="projects">
-                <h1 class="merriweather-black text-3xl p-10 hidden-effect-top">Projects</h1>
+                <h1 class="merriweather-black text-3xl p-10 mx-5 hidden-effect-top">Projects</h1>
                 <div class="px-3 text-center lg:text-left">
                     <div class="w-auto h-auto py-5 flex flex-col lg:flex-row">
-                        <div class="w-auto hidden-effect-left">
+                        <div class="w-auto mx-5 hidden-effect-left">
                             <img src="./images/Screenshot 2024-07-08 195057.png">
                         </div>
-                        <div class="pl-5 hidden-effect-right">
+                        <div class="pl-5 mx-5 hidden-effect-right">
                             <h3 class="text-2xl font-bold pt-3">Project 1</h3>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
                                 debitis.
@@ -397,7 +402,7 @@
                         </div>
                     </div>
                     <div class="w-auto h-auto py-5 hidden flex-col lg:flex-row lg:flex">
-                        <div class="pl-5 hidden-effect-left">
+                        <div class="pl-5 mx-5 hidden-effect-left">
                             <h3 class="text-2xl font-bold pb-3">Project 2</h3>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
                                 debitis.
@@ -414,15 +419,15 @@
                                 </button>
                             </a>
                         </div>
-                        <div class="w-auto hidden-effect-right">
+                        <div class="w-auto mx-5 hidden-effect-right">
                             <img src="./images/Screenshot 2024-07-08 200730.png">
                         </div>
                     </div>
                     <div class="w-auto h-auto py-5 flex flex-col lg:flex-row lg:hidden">
-                        <div class="w-auto hidden-effect-right">
+                        <div class="w-auto mx-5 hidden-effect-right">
                             <img src="./images/Screenshot 2024-07-08 200730.png">
                         </div>
-                        <div class="pl-5 hidden-effect-left">
+                        <div class="pl-5 mx-5 hidden-effect-left">
                             <h3 class="text-2xl font-bold pb-3">Project 2</h3>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
                                 debitis.
@@ -441,10 +446,10 @@
                         </div>
                     </div>
                     <div class="w-auto h-auto p-5 flex flex-col lg:flex-row">
-                        <div class="w-auto hidden-effect-left">
+                        <div class="w-auto mx-5 hidden-effect-left">
                             <img src="./images/Screenshot 2024-08-18 054843.png">
                         </div>
-                        <div class="pl-5 hidden-effect-right">
+                        <div class="pl-5 mx-5 hidden-effect-right">
                             <h3 class="text-2xl font-bold pt-3">Project 3</h3>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
                                 debitis.
@@ -466,8 +471,8 @@
                 </div>
             </section>
             <section id="achievements-section">
-                <h1 class="merriweather-black text-3xl p-10 hidden-effect-top">Achievements</h1>
-                <div class="flex flex-col lg:flex-row px-3 lg:space-x-10 justify-between hidden-effect-top">
+                <h1 class="merriweather-black text-3xl p-10 mx-5 hidden-effect-top">Achievements</h1>
+                <div class="flex flex-col lg:flex-row px-3 lg:space-x-10 justify-between mx-5 hidden-effect-top">
                     <div class="w-auto h-auto p-2 shadow-md">
                         <img src="./images/IMG-20240501-WA0000.jpg" width="auto" height="100px">
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum aperiam quidem sequi
@@ -504,23 +509,23 @@
                 </div>
             </section>
             <section id="courses-section">
-                <h1 class="merriweather-black text-3xl py-10 hidden-effect-top">Courses</h1>
+                <h1 class="merriweather-black text-3xl py-10 mx-5 hidden-effect-top">Courses</h1>
                 <div class="p-5">
-                    <div class="shadow-md p-5 flex items-center justify-between text-center hidden-effect-left">
+                    <div class="shadow-md p-5 flex items-center justify-between text-center mx-5 hidden-effect-left">
                         <img src="https://clipground.com/images/coursera-logo-png-1.jpg" width="100px" height="100px">
                         <h3>Google AI Essentials</h3>
                         <a href="https://www.credly.com/badges/c7eecf51-a02f-4c96-8f7a-8e634090d0d5/linked_in_profile" target="_blank">
                             <button class="outline outline-offset-2 outline-black rounded p-3"><i class="fa-solid fa-arrow-up-right-from-square pr-3"></i>View credentials</button>
                         </a>
                     </div>
-                    <div class="shadow-md p-5 flex items-center justify-between text-center hidden-effect-right">
+                    <div class="shadow-md p-5 flex items-center justify-between text-center mx-5 hidden-effect-right">
                         <img src="https://icon.icepanel.io/Technology/svg/Postman.svg" width="100px" height="100px">
                         <h3>Postman API Fundamentals Student Expert Badge</h3>
                         <a href="https://badgr.com/public/assertions/HVndvOU4SnCTWAiSI9pCvQ?identity__email=dhineshkumaran2004@outlook.com" target="_blank">
                             <button class="outline outline-offset-2 outline-black rounded p-3"><i class="fa-solid fa-arrow-up-right-from-square pr-3"></i>View credentials</button>
                         </a>
                     </div>
-                    <div class="shadow-md p-5 flex items-center justify-between text-center hidden-effect-left">
+                    <div class="shadow-md p-5 flex items-center justify-between text-center mx-5 hidden-effect-left">
                         <img src="https://logosandtypes.com/wp-content/uploads/2024/01/Udemy.png" width="100px"
                             height="100px">
                         <h3>The Basics of Linux Command Line</h3>
@@ -528,7 +533,7 @@
                             <button class="outline outline-offset-2 outline-black rounded p-3"><i class="fa-solid fa-arrow-up-right-from-square pr-3"></i>View credentials</button>
                         </a>
                     </div>
-                    <div class="shadow-md p-5 flex items-center justify-between text-center hidden-effect-right">
+                    <div class="shadow-md p-5 flex items-center justify-between text-center mx-5 hidden-effect-right">
                         <img src="https://logosandtypes.com/wp-content/uploads/2024/01/Udemy.png" width="100px"
                             height="100px">
                         <h3>TailwindCSS from A to Z: Master TailwindCSS Quickly</h3>
@@ -536,7 +541,7 @@
                             <button class="outline outline-offset-2 outline-black rounded p-3"><i class="fa-solid fa-arrow-up-right-from-square pr-3"></i>View credentials</button>
                         </a>
                     </div>
-                    <div class="shadow-md p-5 flex items-center justify-between text-center hidden-effect-left">
+                    <div class="shadow-md p-5 flex items-center justify-between text-center mx-5 hidden-effect-left">
                         <img src="https://logodownload.org/wp-content/uploads/2014/09/nvidia-logo-0.png" width="100px"
                             height="100px">
                         <h3>Introduction to Networking</h3>
@@ -547,8 +552,8 @@
                 </div>
             </section>
             <section id="profile-section" class="pb-32 sm:pb-12">
-                <h1 class="merriweather-black text-3xl p-10 hidden-effect-top">Profile</h1>
-                <div class="shadow-md p-16 w-auto h-auto hidden-effect-top">
+                <h1 class="merriweather-black text-3xl p-10 mx-5 hidden-effect-top">Profile</h1>
+                <div class="shadow-md p-16 w-auto h-auto mx-5 hidden-effect-top">
                     <div class="flex flex-col lg:flex-row text-center justify-between">
                         <div class="text-center">
                             <h6 class="font-bold">Name</h6>
