@@ -570,14 +570,14 @@ video {
   margin: 1.25rem;
 }
 
-.my-3 {
-  margin-top: 0.75rem;
-  margin-bottom: 0.75rem;
-}
-
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .mb-2 {
@@ -626,6 +626,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .w-6 {
@@ -702,10 +706,6 @@ video {
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
-}
-
-.overflow-x-hidden {
-  overflow-x: hidden;
 }
 
 .rounded {
