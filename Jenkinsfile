@@ -44,16 +44,6 @@ pipeline {
             }
         }
 
-        stage('No Pass Test') {
-            when {
-                failure()
-            }
-            steps {
-                echo "Tests failed! Handle failure accordingly."
-                // Additional failure handling can be done here.
-            }
-        }
-
         stage('Dockerize') {
             steps {
                 echo "Building Docker image..."
@@ -90,4 +80,3 @@ pipeline {
         }
     }
 }
-
