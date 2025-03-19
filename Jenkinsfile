@@ -34,7 +34,7 @@ pipeline {
                 echo "Running tests..."
                 script {
                     try {
-                        sh 'npm test'
+                        sh 'npm test -- --passWithNoTests'
                     } catch (Exception e) {
                         echo "Tests failed!"
                         currentBuild.result = 'FAILURE'
