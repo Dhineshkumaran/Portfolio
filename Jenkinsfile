@@ -51,7 +51,7 @@ pipeline {
                 script {
                     try {
                         // Run the Docker container in detached mode
-                        sh 'echo "Dhinesh123#"|sudo docker run -d --name ${DOCKER_CONTAINER} ${DOCKER_IMAGE}'
+                        sh 'echo "Dhinesh123#"|sudo docker run -d -p 3000:8000 --name ${DOCKER_CONTAINER} ${DOCKER_IMAGE}'
                     } catch (Exception e) {
                         echo "Error running Docker container"
                         currentBuild.result = 'FAILURE'
