@@ -36,7 +36,7 @@ pipeline {
                 echo "Building Docker image..."
                 script {
                     try {
-                        sh 'docker build -t ${DOCKER_IMAGE} .'
+                        sh 'echo "Dhinesh123#"|sudo docker build -t ${DOCKER_IMAGE} .'
                     } catch (Exception e) {
                         echo "Error during Docker build"
                         currentBuild.result = 'FAILURE'
