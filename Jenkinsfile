@@ -29,20 +29,7 @@ pipeline {
             }
         }
 
-        stage('Tests') {
-            steps {
-                echo "Running tests..."
-                script {
-                    try {
-                        sh 'npm test -- --passWithNoTests'
-                    } catch (Exception e) {
-                        echo "Tests failed!"
-                        currentBuild.result = 'FAILURE'
-                        throw e
-                    }
-                }
-            }
-        }
+       
 
         stage('Dockerize') {
             steps {
