@@ -1,25 +1,40 @@
 {
   "name": "my-tailwind-project",
   "version": "1.0.0",
-  "description": "",
+  "description": "When you're ready, start your application by running:\r `docker compose up --build`.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tailwindcss -i ./src/styles.css -o ./dist/styles.css --watch",
-    "start": "node server.js"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.39",
+    "@vitejs/plugin-react": "^5.1.4",
+    "autoprefixer": "^10.4.27",
+    "postcss": "^8.5.6",
     "postcss-cli": "^11.0.0",
-    "tailwindcss": "^3.4.4"
+    "tailwindcss": "^3.4.19",
+    "vite": "^7.3.1"
   },
   "dependencies": {
     "express": "^4.21.0",
+    "framer-motion": "^12.34.3",
+    "lucide-react": "^0.575.0",
     "nodemon": "^3.1.7",
-    "path": "^0.12.7"
-  }
+    "path": "^0.12.7",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dhineshkumaran/Portfolio.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Dhineshkumaran/Portfolio/issues"
+  },
+  "homepage": "https://github.com/Dhineshkumaran/Portfolio#readme"
 }
