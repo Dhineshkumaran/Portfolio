@@ -476,10 +476,16 @@ export default function App() {
                                     variants={itemVariants}
                                     className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col h-full group p-8 hover:shadow-2xl transition-all"
                                 >
-                                    <div className="mb-6 flex items-center justify-center w-16 h-16 bg-violet-100 text-violet-600 rounded-2xl group-hover:bg-violet-600 group-hover:text-white transition-colors duration-300">
-                                        <FileText className="w-8 h-8" />
+                                    <div className="mb-6 flex items-center gap-4">
+                                        <div className="w-16 h-16 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center p-2 group-hover:shadow-md transition-all">
+                                            <img src="/SACL-LOGO-01.svg" alt="SACL Logo" className="w-full h-full object-contain" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xs font-black text-violet-600 uppercase tracking-widest">Sakthi Auto Component Limited</h4>
+                                            <p className="text-[10px] text-slate-400 font-bold uppercase mt-0.5">Company Project</p>
+                                        </div>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-3">Digital Trial Card (DTC)</h3>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-3">Digital Trial Card</h3>
                                     <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
                                         A comprehensive manufacturing workflow management system designed specifically for foundry operations. It streamlines multi-stage quality inspections (Visual, Dimensional, Metallurgical) and automates department handoffs with integrated role-based access and HOD approvals.
                                     </p>
@@ -493,12 +499,18 @@ export default function App() {
                                     variants={itemVariants}
                                     className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col h-full group p-8 hover:shadow-2xl transition-all"
                                 >
-                                    <div className="mb-6 flex items-center justify-center w-16 h-16 bg-violet-100 text-violet-600 rounded-2xl group-hover:bg-violet-600 group-hover:text-white transition-colors duration-300">
-                                        <Code2 className="w-8 h-8" />
+                                    <div className="mb-6 flex items-center gap-4">
+                                        <div className="w-16 h-16 bg-white rounded-2xl border border-slate-100 shadow-sm flex items-center justify-center p-2 group-hover:shadow-md transition-all">
+                                            <img src="/SACL-LOGO-01.svg" alt="SACL Logo" className="w-full h-full object-contain" />
+                                        </div>
+                                        <div>
+                                            <h4 className="text-xs font-black text-violet-600 uppercase tracking-widest">Sakthi Auto Component Limited</h4>
+                                            <p className="text-[10px] text-slate-400 font-bold uppercase mt-0.5">Company Project</p>
+                                        </div>
                                     </div>
-                                    <h3 className="text-2xl font-bold text-slate-900 mb-3">VRAS</h3>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-3">Vehicle Register Automation System</h3>
                                     <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-                                        An enterprise-grade Vehicle Registration and Access System (VRAS) that streamlines the vehicle inward entry tracking. It features dedicated master data extraction for driver and vehicle details, replacing redundant manual entries with simplified, searchable workflows to enforce data integrity.
+                                        An enterprise-grade Vehicle Register Automation System that streamlines the vehicle inward entry tracking. It features dedicated master data extraction for driver and vehicle details, replacing redundant manual entries with simplified, searchable workflows to enforce data integrity.
                                     </p>
                                     <div className="flex flex-wrap gap-2 mt-auto">
                                         <span className="px-3 py-1 bg-violet-50 text-violet-600 text-[10px] font-black rounded-lg uppercase border border-violet-100">Access Management</span>
