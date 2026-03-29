@@ -108,7 +108,7 @@ const NAV_ITEMS = [
     { id: 'projects', label: 'Projects', icon: <Briefcase className="w-5 h-5" /> },
     { id: 'achievements', label: 'Achievements', icon: <Trophy className="w-5 h-5" /> },
     { id: 'courses', label: 'Courses', icon: <BookOpen className="w-5 h-5" /> },
-    { id: 'profile', label: 'Profile', icon: <Info className="w-5 h-5" /> },
+    { id: 'recent-work', label: 'Professional Work', icon: <FileText className="w-5 h-5" /> },
     { id: 'stats', label: 'Stats', icon: <BarChart3 className="w-5 h-5" /> },
 ]
 
@@ -460,8 +460,8 @@ export default function App() {
                         </motion.div>
                     </section>
 
-                    {/* Profile Section */}
-                    <section id="profile" className="py-20 border-t border-slate-100">
+                    {/* Professional Work Section */}
+                    <section id="recent-work" className="py-20 border-t border-slate-100">
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
@@ -469,66 +469,42 @@ export default function App() {
                             viewport={{ once: true }}
                         >
                             <motion.h2 variants={itemVariants} className="text-4xl font-black mb-12 text-slate-900 merriweather-black">
-                                Personal Profile
+                                Professional Work
                             </motion.h2>
-                            <div className="bg-white rounded-[3rem] p-12 shadow-2xl shadow-slate-200/50 border border-slate-100">
-                                <div className="grid md:grid-cols-3 gap-12">
-                                    <div className="space-y-6">
-                                        <div>
-                                            <h4 className="flex items-center gap-2 text-slate-400 font-black text-[10px] uppercase tracking-[0.2em] mb-3">
-                                                <User className="w-4 h-4" /> Full Name
-                                            </h4>
-                                            <p className="text-slate-900 font-bold text-lg">Dhineshkumaran S</p>
-                                        </div>
-                                        <div>
-                                            <h4 className="flex items-center gap-2 text-slate-400 font-black text-[10px] uppercase tracking-[0.2em] mb-3">
-                                                <User className="w-4 h-4" /> Date of Birth
-                                            </h4>
-                                            <p className="text-slate-900 font-bold text-lg">July 26, 2004</p>
-                                        </div>
-                                        <div>
-                                            <h4 className="flex items-center gap-2 text-slate-400 font-black text-[10px] uppercase tracking-[0.2em] mb-3">
-                                                <User className="w-4 h-4" /> Languages
-                                            </h4>
-                                            <p className="text-slate-900 font-bold text-lg">Tamil, English</p>
-                                        </div>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col h-full group p-8 hover:shadow-2xl transition-all"
+                                >
+                                    <div className="mb-6 flex items-center justify-center w-16 h-16 bg-violet-100 text-violet-600 rounded-2xl group-hover:bg-violet-600 group-hover:text-white transition-colors duration-300">
+                                        <FileText className="w-8 h-8" />
                                     </div>
-                                    <div className="space-y-6">
-                                        <div>
-                                            <h4 className="flex items-center gap-2 text-slate-400 font-black text-[10px] uppercase tracking-[0.2em] mb-3">
-                                                <User className="w-4 h-4" /> Address
-                                            </h4>
-                                            <address className="not-italic text-slate-900 font-bold leading-relaxed">
-                                                25, Thottiankinathupudur,<br />
-                                                Kasthuriba grammam(PO),<br />
-                                                Arachalur(Via), Erode - 638101
-                                            </address>
-                                        </div>
-                                        <div>
-                                            <h4 className="flex items-center gap-2 text-slate-400 font-black text-[10px] uppercase tracking-[0.2em] mb-3">
-                                                <User className="w-4 h-4" /> Hobbies
-                                            </h4>
-                                            <p className="text-slate-900 font-bold leading-relaxed">
-                                                Coding, Research, Listening to Music, Playing Sports
-                                            </p>
-                                        </div>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-3">Digital Trial Card (DTC)</h3>
+                                    <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+                                        A comprehensive manufacturing workflow management system designed specifically for foundry operations. It streamlines multi-stage quality inspections (Visual, Dimensional, Metallurgical) and automates department handoffs with integrated role-based access and HOD approvals.
+                                    </p>
+                                    <div className="flex flex-wrap gap-2 mt-auto">
+                                        <span className="px-3 py-1 bg-violet-50 text-violet-600 text-[10px] font-black rounded-lg uppercase border border-violet-100">Workflow Automation</span>
+                                        <span className="px-3 py-1 bg-violet-50 text-violet-600 text-[10px] font-black rounded-lg uppercase border border-violet-100">Manufacturing</span>
                                     </div>
-                                    <div className="space-y-6">
-                                        <div>
-                                            <h4 className="flex items-center gap-2 text-slate-400 font-black text-[10px] uppercase tracking-[0.2em] mb-3">
-                                                <Mail className="w-4 h-4" /> Email & Contact
-                                            </h4>
-                                            <div className="space-y-3">
-                                                <a href="mailto:dhineshkumaran2004@outlook.com" className="flex items-center gap-3 text-slate-900 font-bold hover:text-violet-600 transition-colors">
-                                                    <Mail className="w-5 h-5 text-violet-500" /> dhineshkumaran2004@outlook.com
-                                                </a>
-                                                <a href="tel:+919952237496" className="flex items-center gap-3 text-slate-900 font-bold hover:text-violet-600 transition-colors">
-                                                    <Phone className="w-5 h-5 text-violet-500" /> +91 9952237496
-                                                </a>
-                                            </div>
-                                        </div>
+                                </motion.div>
+
+                                <motion.div
+                                    variants={itemVariants}
+                                    className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col h-full group p-8 hover:shadow-2xl transition-all"
+                                >
+                                    <div className="mb-6 flex items-center justify-center w-16 h-16 bg-violet-100 text-violet-600 rounded-2xl group-hover:bg-violet-600 group-hover:text-white transition-colors duration-300">
+                                        <Code2 className="w-8 h-8" />
                                     </div>
-                                </div>
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-3">VRAS</h3>
+                                    <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+                                        An enterprise-grade Vehicle Registration and Access System (VRAS) that streamlines the vehicle inward entry tracking. It features dedicated master data extraction for driver and vehicle details, replacing redundant manual entries with simplified, searchable workflows to enforce data integrity.
+                                    </p>
+                                    <div className="flex flex-wrap gap-2 mt-auto">
+                                        <span className="px-3 py-1 bg-violet-50 text-violet-600 text-[10px] font-black rounded-lg uppercase border border-violet-100">Access Management</span>
+                                        <span className="px-3 py-1 bg-violet-50 text-violet-600 text-[10px] font-black rounded-lg uppercase border border-violet-100">Master Data</span>
+                                    </div>
+                                </motion.div>
                             </div>
                         </motion.div>
                     </section>
