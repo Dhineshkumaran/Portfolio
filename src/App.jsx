@@ -105,17 +105,41 @@ const NAV_ITEMS = [
     { id: 'about', label: 'About', icon: <User className="w-5 h-5" /> },
     { id: 'education', label: 'Education', icon: <GraduationCap className="w-5 h-5" /> },
     { id: 'skills', label: 'Skills', icon: <Code2 className="w-5 h-5" /> },
+    { id: 'recent-work', label: 'Professional Work', icon: <FileText className="w-5 h-5" /> },
     { id: 'projects', label: 'Projects', icon: <Briefcase className="w-5 h-5" /> },
     { id: 'achievements', label: 'Achievements', icon: <Trophy className="w-5 h-5" /> },
     { id: 'courses', label: 'Courses', icon: <BookOpen className="w-5 h-5" /> },
-    { id: 'recent-work', label: 'Professional Work', icon: <FileText className="w-5 h-5" /> },
     { id: 'stats', label: 'Stats', icon: <BarChart3 className="w-5 h-5" /> },
 ]
+
+const BACKGROUND_BLOBS = [
+    { color: 'bg-violet-200/30', size: 'w-96 h-96', initial: { x: '-10%', y: '10%' }, animate: { x: ['0%', '20%', '-10%'], y: ['0%', '30%', '0%'], scale: [1, 1.2, 1] } },
+    { color: 'bg-blue-200/20', size: 'w-[30rem] h-[30rem]', initial: { x: '60%', y: '40%' }, animate: { x: ['60%', '40%', '60%'], y: ['40%', '70%', '40%'], scale: [1, 1.1, 1] } },
+    { color: 'bg-fuchsia-200/20', size: 'w-80 h-80', initial: { x: '20%', y: '60%' }, animate: { x: ['20%', '50%', '20%'], y: ['60%', '30%', '60%'], scale: [1, 1.3, 1] } },
+]
+
+const PARTICLES = Array.from({ length: 20 }).map((_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 4 + 2,
+    opacity: Math.random() * 0.5 + 0.2
+}))
+
 
 export default function App() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const [activeSection, setActiveSection] = useState('about')
     const [isLargeScreen, setIsLargeScreen] = useState(true)
+    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            setMousePosition({ x: e.clientX, y: e.clientY })
+        }
+        window.addEventListener('mousemove', handleMouseMove)
+        return () => window.removeEventListener('mousemove', handleMouseMove)
+    }, [])
 
     useEffect(() => {
         const checkScreenSize = () => {
@@ -163,7 +187,56 @@ export default function App() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-50 text-slate-800">
+        <div className="min-h-screen bg-slate-50 text-slate-800 selection:bg-violet-100 selection:text-violet-700 overflow-x-hidden">
+            {/* Advanced Graphical Background Layer */}
+            <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+                {/* Floating Animated Blobs */}
+                {BACKGROUND_BLOBS.map((blob, i) => (
+                    <motion.div
+                        key={i}
+                        className={`absolute rounded-full blur-[100px] ${blob.color} ${blob.size}`}
+                        initial={blob.initial}
+                        animate={blob.animate}
+                        transition={{
+                            duration: 20 + i * 5,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    />
+                ))}
+
+                {/* Parallax Interacting Particles */}
+                {PARTICLES.map((particle) => (
+                    <motion.div
+                        key={particle.id}
+                        className="absolute bg-violet-400 rounded-full"
+                        style={{
+                            left: `${particle.x}%`,
+                            top: `${particle.y}%`,
+                            width: particle.size,
+                            height: particle.size,
+                            opacity: particle.opacity,
+                        }}
+                        animate={{
+                            x: (mousePosition.x - (window.innerWidth / 2)) * -0.05,
+                            y: (mousePosition.y - (window.innerHeight / 2)) * -0.05,
+                        }}
+                        transition={{
+                            type: "smooth",
+                            duration: 0.5
+                        }}
+                    />
+                ))}
+
+                {/* Remaining Subtle Mouse Spotlight */}
+                <div
+                    className="absolute inset-0 opacity-30 transition-opacity duration-300"
+                    style={{
+                        background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(124, 58, 237, 0.05), transparent 80%)`
+                    }}
+                />
+            </div>
+
             {/* Mobile Menu Toggle */}
             <button
                 onClick={toggleSidebar}
@@ -178,33 +251,33 @@ export default function App() {
                 animate={isLargeScreen ? { x: 0 } : (isSidebarOpen ? { x: 0 } : { x: "-100%" })}
                 className="fixed top-0 left-0 z-40 w-72 h-screen bg-violet-600 text-white shadow-2xl transition-all"
             >
-                <div className="flex flex-col h-full p-8">
-                    <div className="flex flex-col items-center mb-10 text-center">
+                <div className="flex flex-col h-full p-5">
+                    <div className="flex flex-col items-center mb-6 text-center">
                         <motion.div
                             whileHover={{ scale: 1.05 }}
-                            className="w-32 h-32 mb-4 rounded-full border-4 border-white/20 overflow-hidden shadow-xl"
+                            className="w-20 h-20 mb-3 rounded-full border-4 border-white/20 overflow-hidden shadow-xl"
                         >
                             <img src="/images/IMG_20240719_104822.jpg" alt="Profile" className="w-full h-full object-cover" />
                         </motion.div>
                         <h2 className="text-xl font-bold">Dhinesh kumaran S</h2>
-                        <p className="text-violet-200 text-sm mb-6">Computer Science Engineer</p>
+                        <p className="text-violet-200 text-xs mb-3">Computer Science Engineer</p>
 
                         <a
                             href="/22CSR048_Resume.pdf"
                             target="_blank"
-                            className="px-6 py-2 bg-white text-violet-600 rounded-full font-semibold text-sm hover:bg-violet-100 transition-colors shadow-md"
+                            className="px-5 py-1.5 bg-white text-violet-600 rounded-full font-semibold text-xs hover:bg-violet-100 transition-colors shadow-md"
                         >
                             View Resume
                         </a>
                     </div>
 
-                    <ul className="space-y-2 flex-grow overflow-y-auto">
+                    <ul className="space-y-1 flex-grow overflow-y-auto no-scrollbar">
                         {NAV_ITEMS.map((item) => (
                             <li key={item.id}>
                                 <a
                                     href={`#${item.id}`}
                                     onClick={() => setIsSidebarOpen(false)}
-                                    className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${activeSection === item.id
+                                    className={`flex items-center gap-3 px-4 py-2 rounded-xl transition-all ${activeSection === item.id
                                         ? 'bg-white/20 text-white font-medium shadow-inner'
                                         : 'hover:bg-white/10 text-violet-100'
                                         }`}
@@ -216,8 +289,8 @@ export default function App() {
                         ))}
                     </ul>
 
-                    <div className="pt-8 border-t border-white/20">
-                        <h3 className="text-xs font-semibold text-violet-200 uppercase tracking-widest mb-4">Find Me On</h3>
+                    <div className="mt-auto pt-4 border-t border-white/20">
+                        <h3 className="text-[10px] font-semibold text-violet-200 uppercase tracking-widest mb-3">Find Me On</h3>
                         <div className="flex gap-4">
                             <motion.a whileHover={{ y: -3 }} href="https://linkedin.com/in/dhinesh-kumaran-s" target="_blank" className="p-2 bg-white/10 rounded-lg hover:bg-white/20 transition-colors">
                                 <Linkedin className="w-5 h-5 text-white" />
@@ -238,7 +311,7 @@ export default function App() {
                 <div className="max-w-6xl mx-auto px-6 lg:px-12 py-12">
 
                     {/* About Section */}
-                    <section id="about" className="py-20">
+                    <section id="about" className="py-16">
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
@@ -281,7 +354,7 @@ export default function App() {
                     </section>
 
                     {/* Education Section */}
-                    <section id="education" className="py-20 border-t border-slate-100">
+                    <section id="education" className="py-16 border-t border-slate-100">
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
@@ -316,7 +389,7 @@ export default function App() {
                     </section>
 
                     {/* Skills Section */}
-                    <section id="skills" className="py-20 border-t border-slate-100">
+                    <section id="skills" className="py-16 border-t border-slate-100">
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
@@ -353,115 +426,8 @@ export default function App() {
                         </motion.div>
                     </section>
 
-                    {/* Projects Section */}
-                    <section id="projects" className="py-20 border-t border-slate-100">
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                        >
-                            <motion.h2 variants={itemVariants} className="text-4xl font-black mb-12 text-slate-900 merriweather-black">
-                                Featured Projects
-                            </motion.h2>
-                            <div className="grid md:grid-cols-2 gap-8">
-                                {PROJECTS.map((project, idx) => (
-                                    <motion.div
-                                        key={idx}
-                                        variants={itemVariants}
-                                        className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col h-full group"
-                                    >
-                                        <div className="h-64 overflow-hidden relative">
-                                            <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                                            <a href={project.github} target="_blank" className="absolute top-6 right-6 p-3 bg-white text-slate-900 rounded-2xl shadow-lg hover:bg-violet-600 hover:text-white transition-all transform hover:rotate-12 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                                                <Github className="w-6 h-6" />
-                                            </a>
-                                        </div>
-                                        <div className="p-8 flex flex-col flex-grow">
-                                            <h3 className="text-2xl font-bold text-slate-900 mb-3">{project.title}</h3>
-                                            <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">{project.description}</p>
-                                            <div className="flex flex-wrap gap-2">
-                                                {project.skills.map((skill, sIdx) => (
-                                                    <span key={sIdx} className="px-3 py-1 bg-violet-50 text-violet-600 text-[10px] font-black rounded-lg uppercase border border-violet-100">
-                                                        {skill}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </section>
-
-                    {/* Achievements Section */}
-                    <section id="achievements" className="py-20 border-t border-slate-100">
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                        >
-                            <motion.h2 variants={itemVariants} className="text-4xl font-black mb-12 text-slate-900 merriweather-black">
-                                Achievements
-                            </motion.h2>
-                            <div className="grid md:grid-cols-3 gap-8">
-                                {ACHIEVEMENTS.map((achieve, idx) => (
-                                    <motion.div
-                                        key={idx}
-                                        variants={itemVariants}
-                                        whileHover={{ y: -5 }}
-                                        className="bg-white p-6 rounded-3xl shadow-lg border border-slate-100"
-                                    >
-                                        <div className="aspect-video mb-6 overflow-hidden rounded-2xl bg-slate-100">
-                                            <img src={achieve.image} alt={achieve.title} className="w-full h-full object-cover" />
-                                        </div>
-                                        <h3 className="font-bold text-slate-900 mb-1">{achieve.title}</h3>
-                                        <p className="text-violet-600 text-xs font-black uppercase tracking-wider mb-4">{achieve.event}</p>
-                                        <p className="text-slate-500 text-sm">{achieve.description}</p>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </section>
-
-                    {/* Courses Section */}
-                    <section id="courses" className="py-20 border-t border-slate-100 text-center">
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                        >
-                            <motion.h2 variants={itemVariants} className="text-4xl font-black mb-12 text-slate-900 merriweather-black">
-                                Certifications
-                            </motion.h2>
-                            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                                {COURSES.map((course, idx) => (
-                                    <motion.a
-                                        key={idx}
-                                        href={course.link}
-                                        target="_blank"
-                                        variants={itemVariants}
-                                        whileHover={{ scale: 1.05 }}
-                                        className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all flex flex-col items-center group"
-                                    >
-                                        <div className="w-20 h-20 mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
-                                            <img src={course.img} alt={course.title} className="max-w-full max-h-full" />
-                                        </div>
-                                        <h3 className="text-sm font-bold text-slate-900 mb-4">{course.title}</h3>
-                                        <div className="mt-auto flex items-center gap-2 text-violet-600 text-xs font-bold uppercase tracking-widest">
-                                            Verify <ExternalLink className="w-3 h-3" />
-                                        </div>
-                                    </motion.a>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </section>
-
                     {/* Professional Work Section */}
-                    <section id="recent-work" className="py-20 border-t border-slate-100">
+                    <section id="recent-work" className="py-16 border-t border-slate-100">
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
@@ -521,8 +487,117 @@ export default function App() {
                         </motion.div>
                     </section>
 
+                    {/* Projects Section */}
+                    <section id="projects" className="py-16 border-t border-slate-100">
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                        >
+                            <motion.h2 variants={itemVariants} className="text-4xl font-black mb-12 text-slate-900 merriweather-black">
+                                Featured Projects
+                            </motion.h2>
+                            <div className="grid md:grid-cols-2 gap-8">
+                                {PROJECTS.map((project, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        variants={itemVariants}
+                                        className="bg-white rounded-[2.5rem] overflow-hidden shadow-xl shadow-slate-200/50 border border-slate-100 flex flex-col h-full group"
+                                    >
+                                        <div className="h-64 overflow-hidden relative">
+                                            <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                            <a href={project.github} target="_blank" className="absolute top-6 right-6 p-3 bg-white text-slate-900 rounded-2xl shadow-lg hover:bg-violet-600 hover:text-white transition-all transform hover:rotate-12 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                                                <Github className="w-6 h-6" />
+                                            </a>
+                                        </div>
+                                        <div className="p-8 flex flex-col flex-grow">
+                                            <h3 className="text-2xl font-bold text-slate-900 mb-3">{project.title}</h3>
+                                            <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">{project.description}</p>
+                                            <div className="flex flex-wrap gap-2">
+                                                {project.skills.map((skill, sIdx) => (
+                                                    <span key={sIdx} className="px-3 py-1 bg-violet-50 text-violet-600 text-[10px] font-black rounded-lg uppercase border border-violet-100">
+                                                        {skill}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </section>
+
+                    {/* Achievements Section */}
+                    <section id="achievements" className="py-16 border-t border-slate-100">
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                        >
+                            <motion.h2 variants={itemVariants} className="text-4xl font-black mb-12 text-slate-900 merriweather-black">
+                                Achievements
+                            </motion.h2>
+                            <div className="grid md:grid-cols-3 gap-8">
+                                {ACHIEVEMENTS.map((achieve, idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        variants={itemVariants}
+                                        whileHover={{ y: -5 }}
+                                        className="bg-white p-6 rounded-3xl shadow-lg border border-slate-100"
+                                    >
+                                        <div className="aspect-video mb-6 overflow-hidden rounded-2xl bg-slate-100">
+                                            <img src={achieve.image} alt={achieve.title} className="w-full h-full object-cover" />
+                                        </div>
+                                        <h3 className="font-bold text-slate-900 mb-1">{achieve.title}</h3>
+                                        <p className="text-violet-600 text-xs font-black uppercase tracking-wider mb-4">{achieve.event}</p>
+                                        <p className="text-slate-500 text-sm">{achieve.description}</p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </section>
+
+                    {/* Courses Section */}
+                    <section id="courses" className="py-16 border-t border-slate-100">
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                        >
+                            <motion.h2 variants={itemVariants} className="text-4xl font-black mb-12 text-slate-900 merriweather-black">
+                                Certifications
+                            </motion.h2>
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                                {COURSES.map((course, idx) => (
+                                    <motion.a
+                                        key={idx}
+                                        href={course.link}
+                                        target="_blank"
+                                        variants={itemVariants}
+                                        whileHover={{ scale: 1.05 }}
+                                        className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all flex flex-col items-center group"
+                                    >
+                                        <div className="w-20 h-20 mb-6 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all">
+                                            <img src={course.img} alt={course.title} className="max-w-full max-h-full" />
+                                        </div>
+                                        <h3 className="text-sm font-bold text-slate-900 mb-4">{course.title}</h3>
+                                        <div className="mt-auto flex items-center gap-2 text-violet-600 text-xs font-bold uppercase tracking-widest">
+                                            Verify <ExternalLink className="w-3 h-3" />
+                                        </div>
+                                    </motion.a>
+                                ))}
+                            </div>
+                        </motion.div>
+                    </section>
+
+
+
                     {/* Stats Section */}
-                    <section id="stats" className="py-20 border-t border-slate-100">
+                    <section id="stats" className="py-16 border-t border-slate-100">
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"
