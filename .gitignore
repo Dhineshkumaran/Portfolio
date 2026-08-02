@@ -87,3 +87,10 @@ node_modules/
 .env.development.local
 .env.test.local
 .env.production.local
+
+# Next.js
+.next/
+
+# Ignore all env files
+.env*
+

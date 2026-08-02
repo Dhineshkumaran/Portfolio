@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Palette */
+    --background: #FDFCF8; /* Soft off-white */
+    --foreground: #1A1A1A; /* Deep slate */
+    --nav-bg: rgba(253, 252, 248, 0.8);
+    --border: rgba(26, 26, 26, 0.1);
+    --border-hover: rgba(26, 26, 26, 0.3);
+    --card-bg: rgba(26, 26, 26, 0.03);
+    --card-hover: rgba(26, 26, 26, 0.06);
+    --accent-teal: #3AA983; /* Slightly darker teal for light mode contrast */
+    --accent-amber: #D98516; /* Slightly darker amber for light mode contrast */
+    --accent-slate: #54657A;
+  }
+  
+  .dark {
+    /* Dark Mode Palette (Original) */
+    --background: #0E0F0D;
+    --foreground: #E8E6DD;
+    --nav-bg: rgba(14, 15, 13, 0.8);
+    --border: rgba(232, 230, 221, 0.1);
+    --border-hover: rgba(232, 230, 221, 0.3);
+    --card-bg: rgba(232, 230, 221, 0.05);
+    --card-hover: rgba(232, 230, 221, 0.08);
+    --accent-teal: #5DCAA5;
+    --accent-amber: #EF9F27;
+    --accent-slate: #64748b;
+  }
+  
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
