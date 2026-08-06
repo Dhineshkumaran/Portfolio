@@ -1,6 +1,5 @@
 "use client";
 import PipelineDiagram from './PipelineDiagram';
-import Typewriter from 'typewriter-effect';
 import { projects } from '../lib/projects';
 
 export default function Hero() {
@@ -20,22 +19,8 @@ export default function Hero() {
                     <div className="text-teal mb-2 font-mono text-2xl md:text-3xl">
                         Hi, I am Dhinesh Kumaran.
                     </div>
-                    <div className="min-h-[120px] md:min-h-[150px]">
-                        <h1>
-                            <Typewriter
-                                options={{
-                                    strings: [
-                                        "I build full-stack platforms and web applications.",
-                                        "I build scalable data pipelines and architectures.",
-                                        "Here's what I've shipped so far."
-                                    ],
-                                    autoStart: true,
-                                    loop: true,
-                                    delay: 50,
-                                    deleteSpeed: 30,
-                                }}
-                            />
-                        </h1>
+                    <div>
+                        <h1>I build full-stack platforms and web applications — here's what I've shipped so far.</h1>
                     </div>
                 </div>
                 
