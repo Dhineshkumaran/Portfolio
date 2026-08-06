@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import type { Project } from '../lib/projects';
 
 export default function JobCard({ project }: { project: Project }) {
@@ -16,7 +17,11 @@ export default function JobCard({ project }: { project: Project }) {
     };
 
     return (
-        <div className="border border-border rounded-lg overflow-hidden bg-cardBg hover:border-borderHover transition-colors">
+        <motion.div 
+            whileHover={{ y: -5 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="border border-border rounded-lg overflow-hidden bg-cardBg hover:border-borderHover transition-colors shadow-sm hover:shadow-xl hover:shadow-[#5DCAA5]/5"
+        >
             {/* Card Header (Always visible) */}
             <div 
                 className="p-5 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4"
@@ -45,7 +50,13 @@ export default function JobCard({ project }: { project: Project }) {
 
             {/* Expanded Details */}
             {expanded && (
-                <div className="p-5 border-t border-border bg-cardHover space-y-6 text-sm">
+                <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="p-5 border-t border-border bg-cardHover space-y-6 text-sm overflow-hidden"
+                >
                     <div className="grid md:grid-cols-2 gap-6">
                         <div>
                             <h4 className="font-mono text-foreground/50 mb-2 uppercase tracking-wider text-xs">The Problem</h4>
@@ -58,13 +69,27 @@ export default function JobCard({ project }: { project: Project }) {
                     </div>
 
                     <div className="flex items-center justify-between pt-4 border-t border-border">
-                        <div className="flex flex-wrap gap-2">
+                        <motion.div 
+                            className="flex flex-wrap gap-2"
+                            initial="hidden"
+                            animate="visible"
+                            variants={{
+                                visible: { transition: { staggerChildren: 0.05 } }
+                            }}
+                        >
                             {project.stack.map(tech => (
-                                <span key={tech} className="text-xs font-mono px-2 py-1 border border-border rounded text-foreground/70">
+                                <motion.span 
+                                    key={tech} 
+                                    variants={{
+                                        hidden: { opacity: 0, scale: 0.8 },
+                                        visible: { opacity: 1, scale: 1 }
+                                    }}
+                                    className="text-xs font-mono px-2 py-1 border border-border rounded text-foreground/70"
+                                >
                                     {tech}
-                                </span>
+                                </motion.span>
                             ))}
-                        </div>
+                        </motion.div>
                         
                         {project.link && (
                             <a 
@@ -77,8 +102,8 @@ export default function JobCard({ project }: { project: Project }) {
                             </a>
                         )}
                     </div>
-                </div>
+                </motion.div>
             )}
-        </div>
+        </motion.div>
     );
 }
