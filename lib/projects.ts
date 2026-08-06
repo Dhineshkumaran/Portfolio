@@ -18,7 +18,7 @@ export const projects: Project[] = [
         problem: 'A healthcare startup needed a platform to communicate trust, simplify complex patient journeys, and generate inquiries securely.',
         outcome: 'Integrated lead generation, WhatsApp-based consultations, and achieved a Lighthouse score of 98 with strong SEO and WCAG accessibility.',
         category: 'professional',
-        link: 'https://homebridgetohealth.com'
+        link: 'https://homebridgeto.health'
     },
     {
         name: 'digital-trial-card',

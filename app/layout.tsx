@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${jetBrainsMono.variable} font-sans bg-background text-foreground antialiased selection:bg-amber/30 selection:text-amber transition-colors duration-300`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
