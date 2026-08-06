@@ -18,17 +18,25 @@ export default function Hero() {
                 
                 <div className="text-3xl md:text-5xl font-normal leading-tight text-foreground max-w-3xl">
                     <div className="text-teal mb-2 font-mono text-2xl md:text-3xl">
-                        <Typewriter
-                            options={{
-                                strings: ['Hi, I am Dhinesh Kumaran.'],
-                                autoStart: true,
-                                loop: true,
-                                delay: 50,
-                                deleteSpeed: 30,
-                            }}
-                        />
+                        Hi, I am Dhinesh Kumaran.
                     </div>
-                    <h1>I build full-stack platforms and web applications — here's what I've shipped so far.</h1>
+                    <div className="min-h-[120px] md:min-h-[150px]">
+                        <h1>
+                            <Typewriter
+                                options={{
+                                    strings: [
+                                        "I build full-stack platforms and web applications.",
+                                        "I build scalable data pipelines and architectures.",
+                                        "Here's what I've shipped so far."
+                                    ],
+                                    autoStart: true,
+                                    loop: true,
+                                    delay: 50,
+                                    deleteSpeed: 30,
+                                }}
+                            />
+                        </h1>
+                    </div>
                 </div>
                 
                 <p className="text-foreground/70 max-w-2xl text-lg leading-relaxed pt-2">
