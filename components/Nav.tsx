@@ -84,7 +84,7 @@ export default function Nav() {
                             </a>
                         </MagneticLink>
                         <MagneticLink>
-                            <a href="https://linkedin.com/in/dhineshkumaran" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-foreground/70 hover:text-teal transition-colors p-2 block">
+                            <a href="https://linkedin.com/in/dhinesh-kumaran-s" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-foreground/70 hover:text-teal transition-colors p-2 block">
                                 <Linkedin size={18} />
                             </a>
                         </MagneticLink>
@@ -133,7 +133,7 @@ export default function Nav() {
                             <a href="https://github.com/Dhineshkumaran" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/70 hover:text-teal">
                                 <Github size={16} /> GitHub
                             </a>
-                            <a href="https://linkedin.com/in/dhineshkumaran" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/70 hover:text-teal">
+                            <a href="https://linkedin.com/in/dhinesh-kumaran-s" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/70 hover:text-teal">
                                 <Linkedin size={16} /> LinkedIn
                             </a>
                             <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/70 hover:text-amber">

@@ -17,7 +17,7 @@ export default function Hero() {
                 
                 <div className="text-3xl md:text-5xl font-normal leading-tight text-foreground max-w-3xl">
                     <div className="text-teal mb-2 font-mono text-2xl md:text-3xl">
-                        Hi, I am Dhinesh Kumaran.
+                        Hi, I am Dhinesh kumaran.
                     </div>
                     <div>
                         <h1>I build full-stack platforms and web applications — here's what I've shipped so far.</h1>

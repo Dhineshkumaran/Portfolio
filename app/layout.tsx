@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetBrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono" });
 
 export const metadata: Metadata = {
-  title: "Dhinesh Kumaran | Software Engineer",
+  title: "Dhinesh kumaran | Software Engineer",
   description: "Software Engineer portfolio showcasing full-stack systems, automation, and backend architectures.",
 };
 
