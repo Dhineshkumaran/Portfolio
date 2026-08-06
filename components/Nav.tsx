@@ -60,19 +60,36 @@ export default function Nav() {
                     <span className="animate-pulse ml-1 opacity-70">_</span>
                 </div>
                 
-                {/* Desktop Navigation */}
-                <div className="hidden lg:flex flex-row items-center gap-4 font-mono text-sm whitespace-nowrap">
-                    {navLinks.map(link => (
-                        <MagneticLink key={link.href}>
-                            <Link href={link.href} className="text-foreground/70 hover:text-foreground transition-colors px-2 py-1 block">
-                                {link.label}
-                            </Link>
-                        </MagneticLink>
+                {/* Desktop Navigation - Pipeline Style */}
+                <div className="hidden lg:flex flex-row items-center font-mono text-sm whitespace-nowrap relative">
+                    {/* The main pipeline connecting the nodes */}
+                    <div className="absolute top-1/2 left-0 right-0 h-px bg-border -translate-y-1/2 z-0 hidden lg:block" />
+
+                    {navLinks.map((link, index) => (
+                        <div key={link.href} className="flex items-center relative z-10">
+                            <MagneticLink>
+                                <Link 
+                                    href={link.href} 
+                                    className="text-foreground/70 hover:text-teal transition-colors px-4 py-1.5 bg-navBg border border-border rounded-full mx-2 flex items-center gap-2 group"
+                                >
+                                    <span className="w-2 h-2 rounded-full bg-border group-hover:bg-teal transition-colors" />
+                                    {link.label}
+                                </Link>
+                            </MagneticLink>
+                            {/* Connecting pipeline dots */}
+                            {index < navLinks.length - 1 && (
+                                <motion.div 
+                                    className="w-1.5 h-1.5 rounded-full bg-teal absolute -right-1 opacity-0 z-20"
+                                    animate={{ x: [0, 20], opacity: [0, 1, 0] }}
+                                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.5 }}
+                                />
+                            )}
+                        </div>
                     ))}
                     
-                    <div className="w-px h-4 bg-border mx-2"></div>
+                    <div className="w-8 h-px bg-border mx-2 z-0 relative"></div>
                     
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center relative z-10 bg-navBg border border-border rounded-full px-2 py-1 mx-2">
                         <MagneticLink>
                             <a href="mailto:dhineshkumaran2004@outlook.com" aria-label="Email" className="text-foreground/70 hover:text-foreground transition-colors p-2 block">
                                 <Mail size={18} />

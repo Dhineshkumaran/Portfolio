@@ -15,12 +15,29 @@ export default function Hero() {
                     <span className="px-3 py-1.5 border-l border-border text-slateBlue">systems: {liveCount} live, {progressCount} in progress</span>
                 </div>
                 
-                <div className="text-3xl md:text-5xl font-normal leading-tight text-foreground max-w-3xl">
-                    <div className="text-teal mb-2 font-mono text-2xl md:text-3xl">
-                        Hi, I am Dhinesh kumaran.
+                {/* Schematic Dashboard Card */}
+                <div className="relative p-8 border border-border bg-cardBg/50 backdrop-blur-md rounded-xl overflow-hidden shadow-2xl">
+                    {/* Decorative schematic corners */}
+                    <div className="absolute top-0 left-0 w-4 h-4 border-t border-l border-teal/50" />
+                    <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-teal/50" />
+                    <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-teal/50" />
+                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-teal/50" />
+                    
+                    {/* Fake Live Logging Header */}
+                    <div className="flex items-center gap-2 mb-6 font-mono text-[10px] uppercase tracking-widest text-teal/70 border-b border-border/50 pb-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse" />
+                        <span>System_Ready // Identity_Loaded</span>
                     </div>
-                    <div>
-                        <h1>I build full-stack platforms and web applications — here's what I've shipped so far.</h1>
+
+                    <div className="text-3xl md:text-5xl font-normal leading-tight text-foreground max-w-3xl relative z-10">
+                        <div className="text-teal mb-2 font-mono text-xl md:text-2xl flex items-center gap-3">
+                            <span className="opacity-50 text-sm">const</span> name = "Dhinesh kumaran";
+                        </div>
+                        <div className="mt-4">
+                            <h1 className="text-2xl md:text-4xl text-foreground/90">
+                                I build <span className="text-teal border-b border-teal/30">full-stack platforms</span> and <span className="text-amber border-b border-amber/30">scalable data pipelines</span>.
+                            </h1>
+                        </div>
                     </div>
                 </div>
                 
