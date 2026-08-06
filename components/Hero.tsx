@@ -35,13 +35,13 @@ export default function Hero() {
                         </div>
                         <div className="mt-4">
                             <h1 className="text-2xl md:text-4xl text-foreground/90">
-                                I build <span className="text-teal border-b border-teal/30">full-stack platforms</span> and <span className="text-amber border-b border-amber/30">scalable data pipelines</span>.
+                                I build <span className="text-teal border-b border-teal/30">full-stack platforms</span> and <span className="text-amber border-b border-amber/30">web applications</span> &mdash; here's what I've shipped so far.
                             </h1>
                         </div>
                     </div>
                 </div>
                 
-                <p className="text-foreground/70 max-w-2xl text-lg leading-relaxed pt-2">
+                <p className="text-foreground/70 max-w-2xl text-lg leading-relaxed pt-2 relative z-10">
                     Software Engineer with a strong interest in Data Engineering. While my foundation is in full-stack development, I am actively exploring and learning about data pipelines, architectures, and large-scale data processing.
                 </p>
 
