@@ -10,7 +10,7 @@ export default function Achievements() {
                 <span className="text-teal">#</span> achievements_&_awards
             </h2>
             
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {ACHIEVEMENTS.map((achieve, idx) => (
                     <motion.div
                         key={idx}

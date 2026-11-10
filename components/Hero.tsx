@@ -1,5 +1,4 @@
 "use client";
-import PipelineDiagram from './PipelineDiagram';
 import { projects } from '../lib/projects';
 
 export default function Hero() {
@@ -42,10 +41,8 @@ export default function Hero() {
                 </div>
                 
                 <p className="text-foreground/70 max-w-2xl text-lg leading-relaxed pt-2 relative z-10">
-                    Software Engineer with a strong interest in Data Engineering. While my foundation is in full-stack development, I am actively exploring and learning about data pipelines, architectures, and large-scale data processing.
+                    Software Engineer focused on building full-stack platforms and web applications, with experience across frontend development, backend services, and databases.
                 </p>
-
-                <PipelineDiagram />
             </div>
         </section>
     );

@@ -16,10 +16,21 @@ export const ACHIEVEMENTS = [
         event: 'E-commerce Industry Innovation',
         description: 'Won for project aiming to foster the eCommerce industry, organized by TBI KEC.',
         image: '/images/Ideathon.png'
+    },
+    {
+        title: '2nd Place - Proof of Concept',
+        event: 'E-commerce Industry Innovation · Phase 2',
+        description: 'Earned 2nd place in the Proof of Concept phase, advancing the e-commerce project from the KEC-Ideathon\'24.',
+        image: '/images/Proof-of-concept.png'
     }
 ];
 
 export const COURSES = [
+    {
+        title: 'GitHub Foundations',
+        img: 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png',
+        link: 'https://learn.microsoft.com/en-us/users/dhineshkumarans-7891/credentials/873078e6933e1209'
+    },
     {
         title: 'MongoDB Associate Developer',
         img: 'https://images.credly.com/size/680x680/images/650ebdbe-d526-4b47-b186-c1ab516b5a7c/image.png',
