@@ -55,14 +55,14 @@ export default function Nav() {
 
     return (
         <nav className="w-full py-4 md:py-6 border-b border-border fixed top-0 left-0 right-0 z-50 bg-navBg/95 backdrop-blur-md">
-            <div className="max-w-5xl mx-auto px-6 flex flex-row items-center justify-between gap-4">
-                <div className="font-mono text-sm md:text-base tracking-tight text-foreground whitespace-nowrap z-50">
+            <div className="max-w-7xl mx-auto px-6 flex flex-row items-center justify-between gap-4">
+                <div className="shrink-0 font-mono text-sm md:text-base tracking-tight text-foreground whitespace-nowrap z-50">
                     <span className="text-teal">dhineshkumaran</span><span className="opacity-50">@</span><span className="text-amber">dev</span>
                     <span className="animate-pulse ml-1 opacity-70">_</span>
                 </div>
                 
                 {/* Desktop Navigation - Pipeline Style */}
-                <div className="hidden lg:flex min-w-0 ml-8 flex-row items-center justify-end font-mono text-xs whitespace-nowrap relative">
+                <div className="hidden 2xl:flex shrink-0 ml-8 flex-row items-center justify-end font-mono text-xs whitespace-nowrap relative">
                     {/* The main pipeline connecting the nodes */}
                     <div className="absolute top-1/2 left-0 right-0 h-px bg-border -translate-y-1/2 z-0 hidden lg:block" />
 
@@ -116,7 +116,7 @@ export default function Nav() {
 
                 {/* Mobile Menu Button */}
                 <button 
-                    className="lg:hidden text-foreground/70 hover:text-foreground p-2 z-50"
+                    className="2xl:hidden text-foreground/70 hover:text-foreground p-2 z-50"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -128,7 +128,7 @@ export default function Nav() {
                 <motion.div 
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="lg:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-xl p-6 font-mono text-sm"
+                    className="2xl:hidden absolute top-full left-0 right-0 bg-background border-b border-border shadow-xl p-6 font-mono text-sm"
                 >
                     <div className="flex flex-col gap-4">
                         {navLinks.map(link => (
