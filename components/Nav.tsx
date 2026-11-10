@@ -46,6 +46,7 @@ export default function Nav() {
 
     const navLinks = [
         { href: "#work", label: "/work" },
+        { href: "#services", label: "/services" },
         { href: "#skills", label: "/skills" },
         { href: "#education", label: "/education" },
         { href: "#achievements", label: "/achievements" },
@@ -56,12 +57,12 @@ export default function Nav() {
         <nav className="w-full py-4 md:py-6 border-b border-border fixed top-0 left-0 right-0 z-50 bg-navBg/95 backdrop-blur-md">
             <div className="max-w-5xl mx-auto px-6 flex flex-row items-center justify-between gap-4">
                 <div className="font-mono text-sm md:text-base tracking-tight text-foreground whitespace-nowrap z-50">
-                    <span className="text-teal">dhinesh</span><span className="opacity-50">@</span><span className="text-amber">data</span>
+                    <span className="text-teal">dhineshkumaran</span><span className="opacity-50">@</span><span className="text-amber">dev</span>
                     <span className="animate-pulse ml-1 opacity-70">_</span>
                 </div>
                 
                 {/* Desktop Navigation - Pipeline Style */}
-                <div className="hidden lg:flex flex-row items-center font-mono text-sm whitespace-nowrap relative">
+                <div className="hidden lg:flex min-w-0 flex-row items-center justify-end font-mono text-xs whitespace-nowrap relative">
                     {/* The main pipeline connecting the nodes */}
                     <div className="absolute top-1/2 left-0 right-0 h-px bg-border -translate-y-1/2 z-0 hidden lg:block" />
 
@@ -70,7 +71,7 @@ export default function Nav() {
                             <MagneticLink>
                                 <Link 
                                     href={link.href} 
-                                    className="text-foreground/70 hover:text-teal transition-colors px-4 py-1.5 bg-navBg border border-border rounded-full mx-2 flex items-center gap-2 group"
+                                    className="text-foreground/70 hover:text-teal transition-colors px-2 py-1.5 bg-navBg border border-border rounded-full mx-1 flex items-center gap-1.5 group"
                                 >
                                     <span className="w-2 h-2 rounded-full bg-border group-hover:bg-teal transition-colors" />
                                     {link.label}

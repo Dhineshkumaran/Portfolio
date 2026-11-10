@@ -3,22 +3,24 @@ import { motion } from 'framer-motion';
 
 export default function SkillsArchitecture() {
     const devStack = [
-        { name: 'Node.js', category: 'Backend' },
-        { name: 'Express.js', category: 'Backend' },
-        { name: 'Python', category: 'Language' },
         { name: 'Java', category: 'Language' },
+        { name: 'Python', category: 'Language' },
+        { name: 'JavaScript', category: 'Language' },
         { name: 'React.js', category: 'Frontend' },
         { name: 'TailwindCSS', category: 'Frontend' },
-        { name: 'PostgreSQL', category: 'Database' },
+        { name: 'Node.js', category: 'Backend' },
+        { name: 'MSSQL', category: 'Database' },
         { name: 'MongoDB', category: 'Database' },
-        { name: 'SQL', category: 'Language' }
+        { name: 'Supabase', category: 'Database' },
+        { name: 'AWS', category: 'Cloud' },
     ];
 
     const toolsInfra = [
         { name: 'Docker', category: 'Infrastructure' },
-        { name: 'AWS EC2', category: 'Cloud' },
         { name: 'Git', category: 'Version Control' },
-        { name: 'Postman', category: 'API Testing' }
+        { name: 'Nginx', category: 'Web Server' },
+        { name: 'Postman', category: 'API Testing' },
+        { name: 'JWT', category: 'Authentication' },
     ];
 
     return (

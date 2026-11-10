@@ -1,9 +1,8 @@
 "use client";
-import { projects } from '../lib/projects';
 
 export default function Hero() {
-    const liveCount = projects.filter(p => p.status === 'passed').length;
-    const progressCount = projects.filter(p => p.status === 'in-progress').length;
+    const liveCount = 4;
+    const progressCount = 0;
 
     return (
         <section className="py-12 md:py-20 max-w-4xl mx-auto px-6">
