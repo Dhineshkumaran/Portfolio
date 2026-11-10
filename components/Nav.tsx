@@ -62,7 +62,7 @@ export default function Nav() {
                 </div>
                 
                 {/* Desktop Navigation - Pipeline Style */}
-                <div className="hidden lg:flex min-w-0 flex-row items-center justify-end font-mono text-xs whitespace-nowrap relative">
+                <div className="hidden lg:flex min-w-0 ml-8 flex-row items-center justify-end font-mono text-xs whitespace-nowrap relative">
                     {/* The main pipeline connecting the nodes */}
                     <div className="absolute top-1/2 left-0 right-0 h-px bg-border -translate-y-1/2 z-0 hidden lg:block" />
 
