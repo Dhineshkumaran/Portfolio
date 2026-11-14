@@ -15,6 +15,7 @@ import { ThemeProvider } from "../components/ThemeProvider";
 import ThemeToggle from "../components/ThemeToggle";
 import AnalyticsEvents from "../components/AnalyticsEvents";
 import Script from "next/script";
+import CodingListener from "../components/CodingListener";
 
 export default function RootLayout({
   children,
@@ -57,6 +58,7 @@ export default function RootLayout({
           </main>
           
           <ThemeToggle />
+          <CodingListener />
           
           <footer className="border-t border-border mt-20 py-8">
               <div className="max-w-4xl mx-auto px-6 text-center font-mono text-xs text-foreground/40">
