@@ -10,7 +10,7 @@ export default function Hero() {
                 <div className="font-mono text-sm border border-border inline-flex flex-wrap items-center rounded-sm bg-cardBg">
                     <span className="px-3 py-1.5 border-r border-border text-slateBlue">status</span>
                     <span className="px-3 py-1.5 text-foreground">building · shipping weekly</span>
-                    <span className="px-3 py-1.5 border-l border-border text-slateBlue">systems: {liveCount} live, {progressCount} in progress</span>
+                    <span className="px-3 py-1.5 border-l border-border text-slateBlue">Projects: {liveCount} complete, {progressCount} in progress</span>
                 </div>
                 
                 {/* Schematic Dashboard Card */}
