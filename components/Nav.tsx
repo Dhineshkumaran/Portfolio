@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
+import { FileText, Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef, ReactNode, useState } from 'react';
 
@@ -107,8 +107,8 @@ export default function Nav() {
                             </a>
                         </MagneticLink>
                         <MagneticLink>
-                            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-foreground/70 hover:text-amber transition-colors ml-1 px-2 py-1 block">
-                                /resume
+                            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume in a new tab" className="text-foreground/70 hover:text-amber transition-colors ml-1 px-2 py-1 flex items-center gap-1.5">
+                                <FileText size={15} /> Resume
                             </a>
                         </MagneticLink>
                     </div>
@@ -154,8 +154,8 @@ export default function Nav() {
                             <a href="https://linkedin.com/in/dhinesh-kumaran-s" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/70 hover:text-teal">
                                 <Linkedin size={16} /> LinkedIn
                             </a>
-                            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-foreground/70 hover:text-amber">
-                                <span className="w-4 text-center">/</span> Resume
+                            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open resume in a new tab" className="flex items-center gap-3 text-foreground/70 hover:text-amber">
+                                <FileText size={16} /> Resume
                             </a>
                         </div>
                     </div>

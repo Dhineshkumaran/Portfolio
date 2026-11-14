@@ -23,9 +23,9 @@ export default function Home() {
         <FadeIn>
           <section className="py-16 max-w-4xl mx-auto px-6 border-t border-border/50 scroll-mt-32 relative" id="work">
             {/* The main vertical data pipe for the section */}
-            <div className="absolute top-0 bottom-0 left-[33px] md:left-[41px] w-px bg-border/50 z-0 hidden sm:block" />
+            <div className="absolute top-20 bottom-0 left-[33px] md:left-[41px] w-px bg-border/50 z-0 hidden sm:block" />
 
-            <h2 className="font-mono text-xl text-foreground mb-12 relative z-10 bg-background inline-block pr-4">
+            <h2 className="font-mono text-xl text-foreground mb-12 relative z-10">
                 Professional Work
             </h2>
             

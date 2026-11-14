@@ -33,7 +33,7 @@ export default function SkillsArchitecture() {
                 }}
             />
 
-            <h2 className="font-mono text-xl text-foreground mb-12 relative z-10 bg-background inline-block pr-4">
+            <h2 className="font-mono text-xl text-foreground mb-12 relative z-10">
                 Skills &amp; Technologies
             </h2>
 
