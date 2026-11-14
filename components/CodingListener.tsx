@@ -59,7 +59,29 @@ export default function CodingListener() {
                 {/* Laptop with a simple code mark */}
                 <rect x="55" y="112" width="49" height="34" rx="3" fill="#252D34" stroke="#A8B7C0" strokeWidth="2" />
                 <path d="m72 124-5 4 5 4m14-8 5 4-5 4m-3-10-4 12" stroke="#5DCAA5" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <motion.rect
+                    x="92"
+                    y="122"
+                    width="2"
+                    height="7"
+                    rx="1"
+                    fill="#EF9F27"
+                    animate={reducedMotion ? { opacity: 1 } : { opacity: [1, 0, 1] }}
+                    transition={reducedMotion ? undefined : { duration: 0.8, repeat: Infinity, ease: 'linear' }}
+                />
                 <path d="m45 150 12-5h46l12 5c2 1 1 4-2 4H47c-3 0-4-3-2-4Z" fill="#A8B7C0" stroke="#56636B" strokeWidth="2" strokeLinejoin="round" />
+                <motion.g
+                    animate={reducedMotion ? undefined : { y: [0, 1.5, 0] }}
+                    transition={reducedMotion ? undefined : { duration: 0.42, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                    <path d="M60 144c1-4 3-5 5-2l2 3c1-4 4-4 5 0l1 2H61l-1-3Z" fill="#F0C49B" stroke="#302D2B" strokeWidth="1.5" strokeLinejoin="round" />
+                </motion.g>
+                <motion.g
+                    animate={reducedMotion ? undefined : { y: [1.5, 0, 1.5] }}
+                    transition={reducedMotion ? undefined : { duration: 0.42, delay: 0.21, repeat: Infinity, ease: 'easeInOut' }}
+                >
+                    <path d="M81 147 83 144c1-4 4-4 5 0l2-2c2-3 4-2 5 2l-1 3H81Z" fill="#F0C49B" stroke="#302D2B" strokeWidth="1.5" strokeLinejoin="round" />
+                </motion.g>
             </svg>
         </div>
     );
