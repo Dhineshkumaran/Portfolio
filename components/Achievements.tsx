@@ -7,7 +7,7 @@ export default function Achievements() {
     return (
         <section className="py-16 max-w-4xl mx-auto px-6 border-t border-border scroll-mt-32" id="achievements">
             <h2 className="font-mono text-xl text-foreground mb-8">
-                <span className="text-teal">#</span> achievements_&_awards
+                Achievements &amp; Awards
             </h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
