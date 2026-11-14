@@ -34,7 +34,7 @@ export default function SkillsArchitecture() {
             />
 
             <h2 className="font-mono text-xl text-foreground mb-12 relative z-10">
-                <span className="text-teal">#</span> Skills &amp; Technologies
+                <span className="text-teal">#</span>{" "}Skills &amp; Technologies
             </h2>
 
             <div className="relative z-10 flex flex-col md:flex-row gap-16 md:gap-8">
