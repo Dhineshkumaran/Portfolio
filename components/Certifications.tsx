@@ -8,7 +8,7 @@ export default function Certifications() {
     return (
         <section className="py-16 max-w-4xl mx-auto px-6 border-t border-border scroll-mt-32" id="certifications">
             <h2 className="font-mono text-xl text-foreground mb-8">
-                Certifications
+                <span className="text-teal">#</span> Certifications
             </h2>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

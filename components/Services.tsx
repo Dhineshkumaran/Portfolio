@@ -22,7 +22,7 @@ export default function Services() {
     return (
         <section className="py-16 max-w-4xl mx-auto px-6 border-t border-border scroll-mt-32" id="services">
             <h2 className="font-mono text-xl text-foreground mb-3">
-                Services I Provide
+                <span className="text-teal">#</span> Services I Provide
             </h2>
             <p className="text-foreground/60 text-sm mb-8 max-w-2xl">
                 I build web applications that help businesses launch products and simplify their workflows.

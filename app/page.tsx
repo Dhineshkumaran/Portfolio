@@ -26,7 +26,7 @@ export default function Home() {
             <div className="absolute top-20 bottom-0 left-[33px] md:left-[41px] w-px bg-border/50 z-0 hidden sm:block" />
 
             <h2 className="font-mono text-xl text-foreground mb-12 relative z-10">
-                Professional Work
+                <span className="text-teal">#</span> Professional Work
             </h2>
             
             <div className="space-y-8 mb-16">
@@ -39,7 +39,7 @@ export default function Home() {
 
             {/* Personal projects hidden at the user's request.
             <h2 className="font-mono text-xl text-foreground mb-12 relative z-10 bg-background inline-block pr-4">
-                Personal Projects
+                <span className="text-teal">#</span> Personal Projects
             </h2>
             
             <div className="space-y-8">

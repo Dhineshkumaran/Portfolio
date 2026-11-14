@@ -25,7 +25,7 @@ export default function Stats() {
     return (
         <section className="py-16 max-w-4xl mx-auto px-6 border-t border-border" id="stats">
             <h2 className="font-mono text-xl text-foreground mb-8">
-                Coding Activity
+                <span className="text-teal">#</span> Coding Activity
             </h2>
             
             <div className="grid lg:grid-cols-2 gap-6">

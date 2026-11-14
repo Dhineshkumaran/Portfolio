@@ -7,7 +7,7 @@ export default function Education() {
     return (
         <section className="py-16 max-w-4xl mx-auto px-6 border-t border-border scroll-mt-32" id="education">
             <h2 className="font-mono text-xl text-foreground mb-8">
-                Education
+                <span className="text-teal">#</span> Education
             </h2>
             
             <div className="space-y-6 relative before:absolute before:left-4 before:top-2 before:bottom-2 before:w-px before:bg-border">
