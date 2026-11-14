@@ -13,6 +13,8 @@ export const metadata: Metadata = {
 
 import { ThemeProvider } from "../components/ThemeProvider";
 import ThemeToggle from "../components/ThemeToggle";
+import AnalyticsEvents from "../components/AnalyticsEvents";
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -22,6 +24,27 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${jetBrainsMono.variable} font-sans bg-background text-foreground antialiased selection:bg-amber/30 selection:text-amber transition-colors duration-300`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WRC2PJNC"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
+        <Script id="gtm-data-layer" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});`}
+        </Script>
+        <Script
+          id="gtm-loader"
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-WRC2PJNC"
+          strategy="afterInteractive"
+        />
+        <AnalyticsEvents />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
