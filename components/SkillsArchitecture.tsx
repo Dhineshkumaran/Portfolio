@@ -34,7 +34,7 @@ export default function SkillsArchitecture() {
             />
 
             <h2 className="font-mono text-xl text-foreground mb-12 relative z-10 bg-background inline-block pr-4">
-                <span className="text-teal">{'<'}</span> Dependency_Graph <span className="text-teal">{'>'}</span>
+                <span className="text-teal">{'<'}</span> Skills &amp; Technologies <span className="text-teal">{'>'}</span>
             </h2>
 
             <div className="relative z-10 flex flex-col md:flex-row gap-16 md:gap-8">
@@ -53,7 +53,7 @@ export default function SkillsArchitecture() {
                         <div className="w-5 h-5 rounded border border-teal/50 flex items-center justify-center bg-teal/10">
                             <div className="w-1.5 h-1.5 bg-teal rounded-full animate-pulse" />
                         </div>
-                        <h3 className="font-mono text-sm text-teal uppercase tracking-widest">Cluster_A: Dev_Stack</h3>
+                        <h3 className="font-mono text-sm text-teal uppercase tracking-widest">Development Skills</h3>
                     </div>
                     
                     <div className="flex flex-col gap-3 pl-8">
@@ -88,7 +88,7 @@ export default function SkillsArchitecture() {
                         <div className="w-5 h-5 rounded border border-amber/50 flex items-center justify-center bg-amber/10">
                             <div className="w-1.5 h-1.5 bg-amber rounded-full animate-pulse" />
                         </div>
-                        <h3 className="font-mono text-sm text-amber uppercase tracking-widest">Cluster_B: Infra</h3>
+                        <h3 className="font-mono text-sm text-amber uppercase tracking-widest">Tools &amp; Platforms</h3>
                     </div>
                     
                     <div className="flex flex-col gap-3 pl-8">
