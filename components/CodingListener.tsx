@@ -14,7 +14,7 @@ export default function CodingListener() {
     const reducedMotion = useReducedMotion();
 
     return (
-        <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-20 overflow-hidden">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20 overflow-hidden lg:fixed lg:inset-0">
             {notes.map((note, index) => (
                 <motion.span
                     key={index}

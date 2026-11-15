@@ -53,12 +53,12 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Nav />
-          <main className="min-h-screen pt-28">
+          <main className="relative min-h-screen pt-28 pb-32 lg:pb-0">
             {children}
+            <CodingListener />
           </main>
           
           <ThemeToggle />
-          <CodingListener />
           
           <footer className="border-t border-border mt-20 py-8">
               <div className="max-w-4xl mx-auto px-6 text-center font-mono text-xs text-foreground/40">
