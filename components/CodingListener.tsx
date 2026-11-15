@@ -18,7 +18,7 @@ export default function CodingListener() {
             {notes.map((note, index) => (
                 <motion.span
                     key={index}
-                    className={`absolute bottom-28 left-[136px] font-mono text-2xl font-bold sm:left-[176px] ${note.color}`}
+                    className={`absolute bottom-20 left-[104px] font-mono text-2xl font-bold sm:bottom-24 sm:left-[136px] ${note.color}`}
                     style={{ textShadow: '0 0 12px currentColor' }}
                     initial={{ opacity: 0, scale: 0.65, x: 0, y: 0, rotate: 0 }}
                     animate={reducedMotion ? { opacity: 0 } : {
@@ -42,7 +42,7 @@ export default function CodingListener() {
             <img
                 src="/images/coder_typing.gif"
                 alt=""
-                className="absolute bottom-0 left-2 w-64 sm:left-4 sm:w-80 h-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.12)]"
+                className="absolute bottom-0 left-2 w-48 h-auto drop-shadow-[0_4px_12px_rgba(0,0,0,0.12)] sm:left-4 sm:w-60"
             />
         </div>
     );
